@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités Du Club ⚽️{% endblock %}
+
+{% block body %}
+
+    {% for actualite in actualites %}
+
+        <p> {{ actualite.titreactualite }} </p>
+        <p> {{ actualite.texteactualite }} </p>
+
+    {% endfor %}
+
+{% endblock %}

@@ -3,17 +3,63 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
+
+<div id="navContainer">
+
+    <div id="navbarContainer">
+
+        <div id="navbar">
+
+            <nav id="menuWrapper">
+            
+                <li id="menu1" class="menuElement"> <a href="{{ path('app_actualite') }}">Actualités</a> </li>
+                <li id="menu2" class="menuElement"> <a href="{{ path('app_equipe') }}">Equipe</a></li>
+                <li id="menu2" class="menuElement"> <a href="{{ path('app_equipe2') }}">Equipe2</a></li>
+                <li id="menu3" class="menuElement"> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+                <li id="menu4" class="menuElement"> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+                {% if app.user %}
+                <li id="menu5" class="menuElement"> <a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+                {% else %}
+                <li id="menu5" class="menuElement"> <a href="{{ path('app_login') }}">Se Connecter</a></li>
+                <li id="menu5" class="menuElement"> <a href="{{ path('app_register') }}">S'inscrire</a></li>
+                {% endif %}
+            </nav>
+            
+        </div>
+
+        <div id="bgWrapper">
+
+            <div id="bg"></div>
+            <div id="bgBubble"><div class="logoAccueil"> <a href="{{ path('app_home') }}"> <img src="{{asset('img/1.jpg')}}" alt="Logo Neuhof Futsal"></a> </div></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
+
+
+    {% block javascripts %}
+
+            <script src="{{ asset('js/script.js') }}"></script>
+
+    {% endblock %}
+
     </body>
+
+
 </html>

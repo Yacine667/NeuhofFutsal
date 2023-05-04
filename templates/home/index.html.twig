@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue Sur Le Site Du Neuhof Futsal ⚽️ {% endblock %}
+
+{% block body %}
+
+<div class="imgAccueil">
+
+    <h1>Neuhof Futsal</h1>
+    <img src="{{asset('img/2.jpg')}}" alt="Logo Neuhof Futsal">
+
+</div>
+
+<section class="game-section">
+
+
+{% for actualite in actualites %}
+
+<div class="owl-carousel custom-carousel owl-theme">
+
+    <div class="item">
+
+		<div class="item-desc">
+
+            <h3> {{ actualite.titreactualite }} </h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+
+</section>
+
+    <div class="linkHomeContainer">
+    
+        <div class="linkHomeLeft"><a href="{{ path('app_actualite') }}">Actualités</a></div>
+
+        <div class="linkHomeRight"><a href="{{ path('app_equipe') }}">Equipe</a></div>
+
+        <div class="linkHomeLeft"><a href="{{ path('app_entraineur') }}">Entraineur</a></div>
+
+        <div class="linkHomeRight"><a href="{{ path('app_rencontre') }}">Matchs</a></div>
+
+        <div class="linkHomeLeft"><a href="#">Discussion</a></div>
+
+        <div class="linkHomeRight">Réseaux Sociaux</div>
+    
+    </div>
+
+{% endblock %}

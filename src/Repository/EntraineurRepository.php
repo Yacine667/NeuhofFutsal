@@ -39,6 +39,16 @@ class EntraineurRepository extends ServiceEntityRepository
         }
     }
 
+       public function findTrainerByEquipe(): ?Entraineur
+   {
+       return $this->createQueryBuilder('e')
+           ->andWhere('e.id = :val')
+           ->setParameter('val', 1)
+           ->getQuery()
+           ->getOneOrNullResult()
+       ;
+   }
+
 //    /**
 //     * @return Entraineur[] Returns an array of Entraineur objects
 //     */

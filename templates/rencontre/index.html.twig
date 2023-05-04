@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Des Matchs{% endblock %}
+
+{% block body %}
+
+{% for rencontre in rencontres %}
+
+    {{ rencontre.equipe1 }}
+
+    {{ rencontre.equipe2 }}
+
+    {{ rencontre.rencontre.daterencontre }}
+
+{% endfor %}
+
+{% endblock %}
