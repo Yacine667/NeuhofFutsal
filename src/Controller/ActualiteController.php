@@ -20,4 +20,15 @@ class ActualiteController extends AbstractController
             'actualites' => $actualites,
         ]);
     }
+
+    #[Route('/actualite/{id}', name: 'details_actualite')]
+
+    public function details(Actualite $actualite): Response
+    {   
+
+        return $this->render('actualite/details.html.twig', [
+            'actualite' => $actualite,
+
+        ]);
+    }
 }

@@ -4,11 +4,27 @@
 
 {% block body %}
 
+<section class="game-section">
+
     {% for actualite in actualites %}
 
-        <p> {{ actualite.titreactualite }} </p>
-        <p> {{ actualite.texteactualite }} </p>
+        <div onclick="document.location='{{ path('details_actualite', {'id': actualite.id}) }}'" class="owl-carousel custom-carousel owl-theme">
+
+            <div class="item">
+
+		        <div class="item-desc">
+
+                    <p> {{ actualite.titreactualite }} </p>
+                    <p> {{ actualite.texteactualite }} </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     {% endfor %}
+
+</section>
 
 {% endblock %}

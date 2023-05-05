@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Joueur;
+use App\Repository\JoueurRepository;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class JoueurController extends AbstractController
 {
@@ -13,6 +17,17 @@ class JoueurController extends AbstractController
     {
         return $this->render('joueur/index.html.twig', [
             'controller_name' => 'JoueurController',
+        ]);
+    }
+
+    #[Route('/joueur/{id}', name: 'details_joueur')]
+
+    public function details(Joueur $joueur): Response
+    {   
+
+        return $this->render('joueur/details.html.twig', [
+            'joueur' => $joueur,
+
         ]);
     }
 }
