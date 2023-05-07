@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Actualite;
+use App\Entity\Post;
+use App\Form\PostType;
+use App\Form\ReponseType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,12 +26,32 @@ class ActualiteController extends AbstractController
 
     #[Route('/actualite/{id}', name: 'details_actualite')]
 
-    public function details(Actualite $actualite): Response
+    public function details(ManagerRegistry $doctrine,Actualite $actualite, Request $request): Response
     {   
+
+        $post= new Post ();
+        $postForm = $this->createForm(PostType::class);
+        $postForm->handleRequest($request);
+
+        if($postForm->isSubmitted() && $postForm->isValid()) {  
+            $post = $postForm->getData();
+            $entityManager = $doctrine->getManager();
+            $post->setDateCreation(new \DateTime());
+            $post->setUser($this->getUser());
+            $post->setActualite($actualite);
+            $entityManager->persist($post);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('details_actualite',['id'=> $actualite->getId()
+            ]);
+        }
 
         return $this->render('actualite/details.html.twig', [
             'actualite' => $actualite,
+            'formAddPost' => $postForm->createView(),
 
         ]);
-    }
+    
+}
+
 }

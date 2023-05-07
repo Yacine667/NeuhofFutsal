@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\PostRepository;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PostRepository;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -16,6 +17,17 @@ class Post
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $texte_post = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?DateTimeInterface $dateCreation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'post')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'post')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Actualite $actualite = null;
 
     public function getId(): ?int
     {
@@ -32,5 +44,46 @@ class Post
         $this->texte_post = $texte_post;
 
         return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->dateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getActualite(): ?Actualite
+    {
+        return $this->actualite;
+    }
+
+    public function setActualite(?Actualite $actualite): self
+    {
+        $this->actualite = $actualite;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+       return $this->texte_post ; 
     }
 }
