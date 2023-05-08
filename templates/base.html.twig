@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
         {% block stylesheets %}
@@ -13,30 +12,25 @@
 
     </head>
 
-<div id="navContainer">
-
-    <div id="navbarContainer">
-
-        <div id="navbar">
-
-            <nav id="menuWrapper">
-            
-                <li id="menu1" class="menuElement"> <a href="{{ path('app_actualite') }}">Actualités</a> </li>
-                <li id="menu2" class="menuElement"> <a href="{{ path('app_equipe') }}">Equipe</a></li>
-                <li id="menu2" class="menuElement"> <a href="{{ path('app_equipe2') }}">Equipe2</a></li>
-                <li id="menu3" class="menuElement"> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
-                <li id="menu4" class="menuElement"> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
-                {% if app.user %}
-                <li id="menu5" class="menuElement"> <a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
-                {% else %}
-                <li id="menu5" class="menuElement"> <a href="{{ path('app_login') }}">Se Connecter</a></li>
-                <li id="menu5" class="menuElement"> <a href="{{ path('app_register') }}">S'inscrire</a></li>
-                {% endif %}
-                <li id="menu5" class="menuElement"> <a href="{{ path('admin') }}">Admin</a></li>
+            <nav>
+                <ul>
+                    <li> <a href="{{ path('app_actualite') }}">Actualités</a> </li>
+                    <li> <a href="{{ path('app_equipe') }}">Equipe</a></li>
+                    <li> <a href="{{ path('app_equipe2') }}">Equipe2</a></li>
+                    <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+                    <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+                    {% if app.user %}
+                    <li> <a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+                    {% else %}
+                    <li> <a href="{{ path('app_login') }}">Se Connecter</a></li>
+                    <li> <a href="{{ path('app_register') }}">S'inscrire</a></li>
+                    {% endif %}
+                    <li> <a href="{{ path('admin') }}">Admin</a></li>
+                </ul>
             </nav>
             
-        </div>
-
+        
+{# 
         <div id="bgWrapper">
 
             <div id="bg"></div>
@@ -44,23 +38,98 @@
 
         </div>
 
-    </div>
+    </div> #}
 
 </div>
 
 
     <body>
+
         {% block body %}
+
+
         {% endblock %}
 
+    <footer class="main-footer">
 
-    {% block javascripts %}
+        <div class="footerContainer">
+
+            <div class="footer-content">
+                <div class="footerRow">
+                    
+                        <div class="logo-widget footer-widget">
+                            <figure class="logo-box"><a href="#"><img src="{{asset('img/1.jpg')}}" alt=""></a></figure>
+                            <div class="text">
+                                <ul class="list">
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                            </ul>
+                            </div>
+                            <ul class="footer-social">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                            </ul>
+                        </div>
+                    
+                    
+                        <div class="service-widget footer-widget">
+                            <div class="footer-title">Services</div>
+                            <ul class="list">
+                                <li><a href="#">CGU</a></li>
+                                <li><a href="#">Mentions Légales</a></li>
+                                <li><a href="#">Protection Des Données Personnelles</a></li>
+                                <li><a href="#">Préférences Cookies</a></li>
+                                
+                            </ul>
+                        </div>
+                    
+                    
+                        <div class="contact-widget footer-widget">
+                            <div class="footer-title">Contacts</div>
+                            <div class="text">
+                                <p>Lorem Ipsum, simply dummy text, printing, Chandigarh</p>
+                                <p>0004434567</p>
+                                <p>info@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </footer>
+    <!-- main-footer end -->
+    <div class="footer-bottom">
+        <div class="footerContainer">
+            <div class="footerRowBotom">
+                
+                    <div class="copyright"><a href="#">Csc Neuhof</a> &copy; 2023 All Right Reserved</div>
+                
+                
+                    <ul class="footer-nav">
+                        <li><a href="#">Conditions D'utilisation</a></li>
+                        <li><a href="#">Politique De Confidentialité</a></li>
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+        {% block javascripts %}
 
             <script src="{{ asset('js/script.js') }}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    {% endblock %}
+        {% endblock %}
 
     </body>
-
 
 </html>

@@ -1,3 +1,5 @@
+console.log('test');
+
 // FIFA CARD
 
 function showSnackBar(snackbarName) {
@@ -28,11 +30,23 @@ function showSnackBar(snackbarName) {
     });
   }
 
-  // CAROUSSEL HOME
 
-  $(document).ready(function () {
-    $(".custom-carousel .item").click(function () {
-      $(".custom-carousel .item").not($(this)).removeClass("active");
-      $(this).toggleClass("active");
+    // Slide HOME
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const slides = document.querySelectorAll('.slide')
+      for (const slide of slides){
+        slide.addEventListener('click', () =>{
+          clearActiveClasses()
+          slide.classList.add('active')
+        })
+      }
+     
+      function clearActiveClasses(){
+        slides.forEach( (slide) =>{
+          slide.classList.remove('active')
+        })
+      }
+    
     });
-  });
