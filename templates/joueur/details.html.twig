@@ -8,94 +8,86 @@
 
 
 <div class="wrapper">
+
   <div class="cols">
-    <div class="col" ontouchstart="this.classList.toggle('hover');">
+
+    <div class="col">
+
       <div class="container">
 
-
         <div class="front">
-          <div class="player-style">
-            <img class="style-icon" src="https://flannerypeakperformance.co.uk/wp-content/uploads/2022/10/hunter-icon.svg" alt="hunter">
-          </div>
-          <div class="player-position">
-            <img class="position-icon" src="https://flannerypeakperformance.co.uk/wp-content/uploads/2022/10/midfielder.svg" alt="midfielder">
-          </div>
+
           <div class="inner">
+
             <div class="top-section">
-              <img class="player-photo" src="https://flannerypeakperformance.co.uk/wp-content/uploads/2022/10/AdobeStock_203380092-transparent.png" alt="stock image">
+
+              <img class="player-photo" src={{ joueur.photojoueur }} alt="Photo Du Joueur">
+
             </div>
+
           </div>
+
           <div class="bottom-section">
-            <span class="star-rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </span>
+
             <h1>{{ joueur.nomjoueur}}</h1>
-            <img class="club-logo" src="{{asset('img/1.jpg')}}" alt="club logo">
+
+            <h2>{{ joueur.prenomjoueur}}</h2>
+
+            <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
+
           </div>
+
         </div>
 
 
         <div class="back">
-          <!-- snackbar triggers -->
-          <div class="player-style">
-            <a onclick="showSnackBar('style')">
-              <img class="style-icon" src="https://flannerypeakperformance.co.uk/wp-content/uploads/2022/10/hunter-icon.svg" alt="style">
-            </a>
-          </div>
-          <div class="player-position">
-            <a onclick="showSnackBar('position')">
-              <img class="position-icon" src="https://flannerypeakperformance.co.uk/wp-content/uploads/2022/10/midfielder.svg" alt="position">
-            </a>
-          </div>
-          <!-- snackbar triggers end -->
+
           <div class="inner">
+
             <div class="top-section">
-              <img class="profile-photo" src="https://flannerypeakperformance.co.uk/wp-content/uploads/2022/10/AdobeStock_202171605_transparent.png" alt="stock image">
+
+              <h2>Attaque : {{ joueur.noteattaque}}</h2>
+              <h2>Attaque : {{ joueur.noteattaque}}</h2>
+              <h2>Attaque : {{ joueur.noteattaque}}</h2>
+              <h2>Attaque : {{ joueur.noteattaque}}</h2>
+              <h2>Attaque : {{ joueur.noteattaque}}</h2>
+              <h2>Attaque : {{ joueur.noteattaque}}</h2>
             </div>
           </div>
           <div class="bottom-section">
+
             <div class="player-details">
-              <div class="nationality">
-                <div class="flag tooltip" id="england">
-                  <span class="tooltiptext">England</span>
-                </div>
-                <div class="flag tooltip" id="scotland">
-                  <span class="tooltiptext">Scotland</span>
-                </div>
-              </div>
+
               <div class="player-dates">
+
                 <div class="birth-date">
-                  <h5>
-                    <span class="title">Date of Birth </span>02.08.02
-                  </h5>
+                  
+                    <span class="title">Date De Naissance : {{joueur.datenaissancejoueur |date("m/d/Y")}}</span>
+                  
                 </div>
+
               </div>
+
             </div>
+
             <div class="player-bio">
-              <h2>Nom Prenom</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus.</p>
+
+              <h2>{{ joueur.nomjoueur}} {{ joueur.prenomjoueur}}</h2>
+
+             <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
+
             </div>
-            <!-- snackbar content -->
-            <div id="snack-style">
-              <span class="snack-title">Style: Hunter </span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-            <div id="snack-position">
-              <span class="snack-title">Midfielder </span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus.
-            </div>
-            <!-- snackbar content end -->
-            <a href="#">
-              <div class="player-menu">
-                <i class="fas fa-plus-circle"></i>
-              </div>
-            </a>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </div>
 
 {% endblock %}

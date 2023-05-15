@@ -52,6 +52,22 @@ class ActualiteController extends AbstractController
 
         ]);
     
+    }
+
+ #[Route('/comment/{id}', name: 'delete_comment')]
+
+    public function deleteComment(ManagerRegistry $doctrine,Post $post)
+  {
+
+    $actuId = $post->getActualite()->getId();
+    $entityManager=$doctrine->getManager();
+    $entityManager->remove($post) ; 
+    $entityManager->flush();
+
+
+   return $this->redirectToRoute('details_actualite',['id'=> $actuId
+]);
+
 }
 
 }

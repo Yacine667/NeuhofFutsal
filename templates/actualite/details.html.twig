@@ -4,17 +4,43 @@
 
 {% block body %}
 
-        <p> {{ actualite.titreactualite }} </p>
-        <p> {{ actualite.texteactualite }} </p>
-        <p> {{ actualite.texteactualite }} </p>
+<div class="detailActuContainer">
 
-        {% for comment in actualite.post %}
+        <div class="detailActuWrapper">
 
-        <p> {{ comment.textePost }} </p>
-        <p> {{ comment.user }} </p>
-        <p> {{ comment.dateCreation|date("d/m/Y") }} </p>
+                <img src="{{ actualite.photoactualite }}">
 
-        {% endfor %}
+                        <div class="textActu">
+
+                                <p> {{ actualite.titreactualite }} </p>
+                                <p> {{ actualite.texteactualite }} </p>
+
+                        </div>
+        
+        </div>
+
+</div>
+
+<div class="commentContainer">
+
+        <div class="commentWrapper">
+
+                {% for comment in actualite.post %}
+                        <div class="comments">
+
+                                <p class="commentsText"> {{ comment.textePost }} </p>
+                                <p class="userPost"> User : {{ comment.user }} Posté Le : {{ comment.dateCreation|date("d/m/Y") }}</p>
+                        
+                                {% if comment.user == app.user%}
+
+                                        <a href="{{ path('delete_comment',{'id':comment.id})}}">Supprimer</a> 
+
+                                {% endif %}
+
+                        </div>
+
+                {% endfor %}
+        </div>
 
 
                 {% if app.user %}
@@ -23,4 +49,5 @@
                         
                 {% endif %}
 
+</div>
 {% endblock %}
