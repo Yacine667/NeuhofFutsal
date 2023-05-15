@@ -12,22 +12,61 @@
 
     </head>
 
-            <nav>
-                <ul>
+        <nav id="topNav">
+
+            <ul>
+                <div class="link">
+
+                    <img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal">
+
                     <li> <a href="{{ path('app_actualite') }}">Actualités</a> </li>
-                    <li> <a href="{{ path('app_equipe') }}">Equipe</a></li>
-                    <li> <a href="{{ path('app_equipe2') }}">Equipe2</a></li>
-                    <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
-                    <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
-                    {% if app.user %}
-                    <li> <a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
-                    {% else %}
-                    <li> <a href="{{ path('app_login') }}">Se Connecter</a></li>
-                    <li> <a href="{{ path('app_register') }}">S'inscrire</a></li>
-                    {% endif %}
+
+                        <div class="dropdown">
+
+                            <li> <a href="{{ path('app_indexTeam') }}">Equipe U-8</a></li>
+
+                                <div class="dropdown-child">
+
+                                    <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
+                                    <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+                                    <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+
+                                </div>
+
+                        </div>
+
+                        <div class="dropdown">
+
+                            <li> <a href="{{ path('app_indexTeam2') }}">Equipe Ad</a></li>
+
+                                <div class="dropdown-child">
+
+                                        <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
+                                        <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+                                        <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+
+                                </div>
+
+                        </div>
+
+                        {% if app.user %}
+
+                            <li> <a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+
+                        {% else %}
+
+                            <li> <a href="{{ path('app_login') }}">Se Connecter</a></li>
+                            <li> <a href="{{ path('app_register') }}">S'inscrire</a></li>
+
+                        {% endif %}
+
                     <li> <a href="{{ path('admin') }}">Admin</a></li>
-                </ul>
-            </nav>
+                
+                </div>
+
+            </ul>
+            
+        </nav>
             
         
 {# 
@@ -49,25 +88,18 @@
 
 
         {% endblock %}
+        
+
+    </body>
 
     <footer class="main-footer">
-
-        <div class="footerContainer">
 
             <div class="footer-content">
                 <div class="footerRow">
                     
-                        <div class="logo-widget footer-widget">
-                            <figure class="logo-box"><a href="#"><img src="{{asset('img/1.jpg')}}" alt=""></a></figure>
-                            <div class="text">
-                                <ul class="list">
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                            </ul>
-                            </div>
+                        <div class="logoClub">
+                            <img src="{{asset('img/1.png')}}" alt="">
+                            <div class="logoWidget">
                             <ul class="footer-social">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -75,6 +107,18 @@
                                 <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                             </ul>
                         </div>
+                            
+                        </div>
+                            {# <div class="text">
+                                <ul class="list">
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                                <li><a href="#">#</a></li>
+                            </ul>
+                            </div> #}
+                        
                     
                     
                         <div class="service-widget footer-widget">
@@ -101,7 +145,7 @@
                 
             </div>
         </div>
-    </footer>
+    
     <!-- main-footer end -->
     <div class="footer-bottom">
         <div class="footerContainer">
@@ -116,9 +160,9 @@
                     </ul>
                 
             </div>
-        </div>
+        
     </div>
-
+</footer>
 
 
 
@@ -130,6 +174,6 @@
 
         {% endblock %}
 
-    </body>
+
 
 </html>

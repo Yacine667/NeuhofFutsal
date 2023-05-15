@@ -4,18 +4,17 @@
 
 {% block body %}
 
-<section class="game-section">
+<section class="indexActualite">
 
     {% for actualite in actualites %}
 
-        <div onclick="document.location='{{ path('details_actualite', {'id': actualite.id}) }}'" class="owl-carousel custom-carousel owl-theme">
+        <div  onclick="document.location='{{ path('details_actualite', {'id': actualite.id}) }}'" class="owl-carousel custom-carousel owl-theme">
 
-            <div class="item">
+            <div class="item" style="background-image: url({{ actualite.photoactualite }})">
 
 		        <div class="item-desc">
 
                     <p> {{ actualite.titreactualite }} </p>
-                    <p> {{ actualite.texteactualite }} </p>
 
                 </div>
 
