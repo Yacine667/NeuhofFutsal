@@ -60,7 +60,12 @@
 
                         {% endif %}
 
-                    <li> <a href="{{ path('admin') }}">Admin</a></li>
+                        {% if app.user and is_granted("ROLE_ADMIN") %}
+
+                                <li> <a href="{{ path('admin') }}">Admin</a></li>
+                                
+                            {% endif %}
+                    
                 
                 </div>
 
@@ -91,78 +96,6 @@
         
 
     </body>
-
-    <footer class="main-footer">
-
-            <div class="footer-content">
-                <div class="footerRow">
-                    
-                        <div class="logoClub">
-                            <img src="{{asset('img/1.png')}}" alt="">
-                            <div class="logoWidget">
-                            <ul class="footer-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                            </ul>
-                        </div>
-                            
-                        </div>
-                            {# <div class="text">
-                                <ul class="list">
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                                <li><a href="#">#</a></li>
-                            </ul>
-                            </div> #}
-                        
-                    
-                    
-                        <div class="service-widget footer-widget">
-                            <div class="footer-title">Services</div>
-                            <ul class="list">
-                                <li><a href="#">CGU</a></li>
-                                <li><a href="#">Mentions Légales</a></li>
-                                <li><a href="#">Protection Des Données Personnelles</a></li>
-                                <li><a href="#">Préférences Cookies</a></li>
-                                
-                            </ul>
-                        </div>
-                    
-                    
-                        <div class="contact-widget footer-widget">
-                            <div class="footer-title">Contacts</div>
-                            <div class="text">
-                                <p>Lorem Ipsum, simply dummy text, printing, Chandigarh</p>
-                                <p>0004434567</p>
-                                <p>info@example.com</p>
-                            </div>
-                        </div>
-                    </div>
-                
-            </div>
-        </div>
-    
-    <!-- main-footer end -->
-    <div class="footer-bottom">
-        <div class="footerContainer">
-            <div class="footerRowBotom">
-                
-                    <div class="copyright"><a href="#">Csc Neuhof</a> &copy; 2023 All Right Reserved</div>
-                
-                
-                    <ul class="footer-nav">
-                        <li><a href="#">Conditions D'utilisation</a></li>
-                        <li><a href="#">Politique De Confidentialité</a></li>
-                    </ul>
-                
-            </div>
-        
-    </div>
-</footer>
 
 
 
