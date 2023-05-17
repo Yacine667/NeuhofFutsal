@@ -38,7 +38,7 @@ class Joueur
     private ?string $video_joueur = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $note_attaque = null;
+    private ?int $note_physique = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $note_defense = null;
@@ -50,7 +50,7 @@ class Joueur
     private ?int $note_drible = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $note_gardien = null;
+    private ?int $note_vitesse = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $note_tir = null;
@@ -160,14 +160,14 @@ class Joueur
         return $this;
     }
 
-    public function getNoteAttaque(): ?int
+    public function getNotePhysique(): ?int
     {
-        return $this->note_attaque;
+        return $this->note_physique;
     }
 
-    public function setNoteAttaque(?int $note_attaque): self
+    public function setNotePhysique(?int $note_physique): self
     {
-        $this->note_attaque = $note_attaque;
+        $this->note_physique = $note_physique;
 
         return $this;
     }
@@ -208,14 +208,14 @@ class Joueur
         return $this;
     }
 
-    public function getNoteGardien(): ?int
+    public function getNoteVitesse(): ?int
     {
-        return $this->note_gardien;
+        return $this->note_vitesse;
     }
 
-    public function setNoteGardien(?int $note_gardien): self
+    public function setNoteVitesse(?int $note_vitesse): self
     {
-        $this->note_gardien = $note_gardien;
+        $this->note_vitesse = $note_vitesse;
 
         return $this;
     }
