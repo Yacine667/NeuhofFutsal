@@ -8,5 +8,82 @@
     <p> {{ entraineurs.nomentraineur }} </p>
     <p> {{ entraineurs.prenomentraineur }} </p>
 
+<div class="wrapper">
+
+  <div class="cols">
+
+    <div class="col">
+
+      <div class="container">
+
+        <div class="front">
+
+          <div class="inner">
+
+            <div class="top-section">
+
+              <img class="player-photo" src={{ entraineurs.photoentraineur }} alt="Photo De L'entraineur">
+
+            </div>
+
+          </div>
+
+          <div class="bottom-section">
+
+            <h1>{{ entraineurs.nomentraineur }}</h1>
+
+            <h2>{{ entraineurs.prenomentraineur}}</h2>
+
+            <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
+
+          </div>
+
+        </div>
+
+
+        <div class="back">
+
+          <div class="inner">
+
+            <div class="top-section">
+
+             
+            </div>
+          </div>
+          <div class="bottom-section">
+
+            <div class="player-details">
+
+              <div class="player-dates">
+
+                <div class="birth-date">
+                  
+                    <span class="title"></span>
+                  
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="player-bio">
+
+              <h2>{{ entraineurs.nomentraineur}} {{ entraineurs.prenomentraineur}}</h2>
+
+             <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 {% endblock %}

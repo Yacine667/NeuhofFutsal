@@ -4,14 +4,81 @@
 
 {% block body %}
 
-{% for rencontre in rencontres %}
+{% set now = date() %}
 
-    {{ rencontre.equipe1 }}
+<div class="rencontreContainer">
 
-    {{ rencontre.equipe2 }}
+    <div class="tableRencontre">
 
-    {{ rencontre.rencontre.daterencontre |date("m/d/Y")}}
+        <table>
 
-{% endfor %}
+            <tr>
+                <th colspan="6"><h2>Matchs Et Résultats</h2></th>
+            </tr>
+
+            <tr>
+                <th colspan="6"><h3>Matchs Joués</h3></th>
+            </tr>
+
+            <tr>
+                <th colspan="3" ></th>
+                <th>Date</th>
+                <th>Stade</th>
+                <th>Score</th>
+            </tr>
+
+                {% for rencontre in rencontres %}
+
+                    {% if now > rencontre.rencontre.daterencontre %}
+
+                        <tr>
+                            <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> <a href="{{ path('app_equipe') }}">{{ rencontre.equipe1 }}</a> </td>  
+                            <td> VS </td>                          
+                            <td> <img src="{{ rencontre.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe2 }} </td>  
+                            <td>{{ rencontre.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
+                            <td>{{ rencontre.rencontre.stade}}</td>
+                            <td>{{ rencontre.rencontre.scorerencontre}}</td>
+                        </tr>
+
+                    {% else %}
+
+                    {% endif %}
+        
+                {% endfor %}
+
+                    <tr>
+                        <th colspan="6"><h3>Matchs A Venir</h3></th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="3" ></th>
+                        <th>Date</th>
+                        <th>Stade</th>
+            
+                    </tr>
+
+                        {% for rencontre in rencontres %}
+
+                            {% if now <= rencontre.rencontre.daterencontre %}
+
+                                <tr>
+                                    <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> <a href="{{ path('app_equipe2') }}">{{ rencontre.equipe1 }}</a> </td> 
+                                    <td> VS </td>                          
+                                    <td> <img src="{{ rencontre.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe2 }} </td> 
+                                    <td>{{ rencontre.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
+                                    <td>{{ rencontre.rencontre.stade}}</td>
+                                </tr>
+
+                            {% else %}
+
+                            {% endif %}
+        
+                        {% endfor %}
+
+    <table>
+
+    </div>
+
+</div>
 
 {% endblock %}
