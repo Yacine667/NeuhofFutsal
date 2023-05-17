@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Joueur;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -28,8 +29,10 @@ class JoueurCrudController extends AbstractCrudController
             ->hideOnIndex();
         yield Field::new('poste_joueur')
             ->hideOnIndex();
-        yield Field::new('photo_joueur')
-            ->hideOnIndex();
+        yield ImageField::new('photo_joueur')
+            ->setBasePath('/')
+            ->setUploadDir('public/img/joueurs')
+            ->setUploadedFileNamePattern('/img/joueurs/[slug].[extension]');
         yield Field::new('video_joueur')
             ->hideOnIndex();
         yield Field::new('note_attaque')

@@ -70,4 +70,28 @@ class ActualiteController extends AbstractController
 
 }
 
+#[Route('/comment/edit/{id}', name: 'edit_comment')]
+public function editComment(ManagerRegistry $doctrine, Post $post, Request $request): Response
+{
+
+    $actuId = $post->getActualite()->getId();
+    // éditer le topic uniquement si on en est l'auteur
+    if($post->getUser() == $this->getUser()) {
+        $form = $this->createForm(PostType::class, $post, ['edit' => true]);
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $doctrine->getManager();
+            $em->flush();
+            return $this->redirectToRoute('details_actualite', ['id' => $actuId]);
+        }
+
+        return $this->render('actualite/edit_comment.html.twig', [
+            'formEditComment' => $form->createView(),
+        ]);
+    } else {
+        return $this->redirectToRoute("app_home");
+    }
+}
+
 }

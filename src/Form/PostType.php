@@ -18,22 +18,25 @@ class PostType extends AbstractType
             ->add('texte_post', TextareaType::class, [
                 'label' => false,
                 'attr' => ['class' => 'messageBox','Maxlength' => 255,]
-            ])
-
-            ->add('ajouter', SubmitType::class, [
-                'label' => 'Commenter',
-                'attr' => ['class' => 'btnAjouter']
-            ])
-        ;
-            // ->add('user')
-            // ->add('actualite')
-        ;
-    }
+            ])  ;
+            
+            if(!$options['edit']){
+                $builder->add('ajouter', SubmitType::class, [
+                    'label' => 'Commenter',
+                    'attr' => ['class' => 'btnAjouter']
+                ]);
+            } else {
+                $builder->add('edit', SubmitType::class, [
+                    'label' => 'Editer',
+                    'attr' => ['class' => 'btnAjouter']
+                ]);
+    }}
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Post::class,
+            'edit' => false
         ]);
     }
 }

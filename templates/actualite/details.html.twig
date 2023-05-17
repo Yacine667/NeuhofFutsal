@@ -34,6 +34,7 @@
                                 {% if comment.user == app.user%}
 
                                         <a href="{{ path('delete_comment',{'id':comment.id})}}">Supprimer</a> 
+                                        <a href="{{ path('edit_comment',{'id':comment.id})}}">adit</a> 
 
                                 {% endif %}
 

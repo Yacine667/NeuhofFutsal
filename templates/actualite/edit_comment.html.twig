@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités Du Club ⚽️{% endblock %}
+
+{% block body %}
+
+    <div class="commentContainer">
+
+                    {% if app.user %}
+                    
+                            {{ form(formEditComment) }}
+                            
+                    {% endif %}
+
+    </div>
+    
+{% endblock %}

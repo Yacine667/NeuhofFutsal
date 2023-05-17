@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Post;
+use App\Entity\User;
 use App\Entity\Stade;
 use App\Entity\Ville;
 use App\Entity\Equipe;
@@ -56,19 +58,21 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('NeuhofFutsal');
+            ->setTitle('C.S.C Neuhof Futsal');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linktoRoute('Back to the website', 'fas fa-home', 'app_home');
-        yield MenuItem::linkToCrud('Actualite', 'fas fa-map-marker-alt', Actualite::class);
-        yield MenuItem::linkToCrud('Entraineur', 'fas fa-map-marker-alt', Entraineur::class);
-        yield MenuItem::linkToCrud('Equipe', 'fas fa-map-marker-alt', Equipe::class);
-        yield MenuItem::linkToCrud('Joueurs', 'fas fa-map-marker-alt', Joueur::class);
-        yield MenuItem::linkToCrud('Rencontre', 'fas fa-map-marker-alt', Rencontre::class);
-        yield MenuItem::linkToCrud('Oppose', 'fas fa-map-marker-alt', Oppose::class);
-        yield MenuItem::linkToCrud('Stade', 'fas fa-map-marker-alt', Stade::class);
-        yield MenuItem::linkToCrud('Ville', 'fas fa-map-marker-alt', Ville::class);
+        yield MenuItem::linktoRoute('Retourner Au Site', 'fa-solid fa-left-long', 'app_home');
+        yield MenuItem::linkToCrud('Actualite', 'fa-regular fa-newspaper', Actualite::class);
+        yield MenuItem::linkToCrud('Entraineur', 'fa-solid fa-person-dots-from-line', Entraineur::class);
+        yield MenuItem::linkToCrud('Equipe', 'fa-solid fa-people-group', Equipe::class);
+        yield MenuItem::linkToCrud('Joueurs', 'fa-solid fa-street-view', Joueur::class);
+        yield MenuItem::linkToCrud('Rencontre', 'fa-solid fa-futbol', Rencontre::class);
+        yield MenuItem::linkToCrud('Oppose', 'fa-solid fa-futbol', Oppose::class);
+        yield MenuItem::linkToCrud('Stade', 'fa-solid fa-school', Stade::class);
+        yield MenuItem::linkToCrud('Ville', 'fa-solid fa-tree-city', Ville::class);
+        yield MenuItem::linkToCrud('User', 'fa-solid fa-user', User::class);
+        yield MenuItem::linkToCrud('Comments', 'ffa-regular fa-comment', Post::class);
     }
 }
