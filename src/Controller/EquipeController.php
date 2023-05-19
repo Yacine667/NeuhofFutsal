@@ -42,7 +42,7 @@ class EquipeController extends AbstractController
     public function indexTeam2(): Response
     {
         
-        return $this->render('generalView/teamView.html.twig', [
+        return $this->render('generalView/teamView2.html.twig', [
             
         ]);
     }

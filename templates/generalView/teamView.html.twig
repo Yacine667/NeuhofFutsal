@@ -5,9 +5,12 @@
 {% block body %}
 
 
-  <a href="{{ path('app_equipe') }}">Equipe</a>
-  <a href="{{ path('app_entraineur') }}">Entraineur</a>
-  <a href="{{ path('app_rencontre') }}">Matchs</a>
+<div class="containerLinkTeam">
 
+  <div class="linkTeam" onclick="document.location='{{ path('app_equipe') }}'"><a href="{{ path('app_equipe') }}">Equipe</a></div>
+  <div class="linkTeam" onclick="document.location='{{ path('app_entraineur') }}'"><a href="{{ path('app_entraineur') }}">Entraineur</a></div>
+  <div class="linkTeam" onclick="document.location='{{ path('app_rencontre') }}'"><a href="{{ path('app_rencontre') }}">Matchs</a></div>
+
+</div>
 
 {% endblock %}

@@ -1439,54 +1439,100 @@ color: white;
 
 .tableRencontre  {
 
-color: white;
-text-align: center;
-background: rgba(255, 255, 255, 0.056);
-box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
-backdrop-filter: blur( 8.5px );
--webkit-backdrop-filter: blur( 8.5px );
-border-radius: 10px;
+  color: white;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.056);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  border-radius: 10px;
 }
 
 .tableRencontre h2 {
 
   font-size: 1.8em;
-  }
+}
 
   
 .tableRencontre h3 {
 
 font-size: 1.6em;
-  }
+}
 
   .tableRencontre a {
 
-    color: white;
-      }
+  color: white;
+}
 
 
 .tableRencontre  th {
 
-width: 20%;
-padding: 1%;
-
-  }
+  width: 20%;
+  padding: 1%;
+}
 
   .tableRencontre  td {
 
-    
     padding: 2%;
-
-    
-      }
+  }
 
 
   .tableRencontre  td img{
+ 
+  width: 70%;
+    
+}
 
-    
-    width: 70%;
-    
-      }
+
+/* Page Index Liens Equipes */
+
+.containerLinkTeam {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  max-width: 90vw;
+  margin: 5%;
+  background: rgba(147, 147, 147, 0.097);
+  box-shadow: 0 15px 25px rgba(255, 0, 0, 0.6);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  border-radius: 10px;
+}
+
+.containerLinkTeam  :hover {
+
+  background: #f403038e;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #f40303cb,
+              0 0 25px #f40303b5,
+              0 0 50px #f40303a4,
+              0 0 100px #f40303d9;
+  }
+
+.linkTeam {
+
+  width: 50%;
+  background: rgba(147, 147, 147, 0.097);
+  box-shadow: 0 15px 25px rgba(255, 0, 0, 0.6);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
+  font-size: 2em;
+  text-align: center;
+}
+
+.linkTeam a {
+
+text-decoration: none;
+color: white;
+}
+
+
 
 
 
