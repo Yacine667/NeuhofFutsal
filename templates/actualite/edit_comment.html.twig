@@ -1,16 +1,18 @@
-{% extends 'base.html.twig' %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
-{% block title %}Actualités Du Club ⚽️{% endblock %}
+{% block title %}Modifier Mon Commentaire{% endblock %}
 
 {% block body %}
 
-    <div class="commentContainer">
+    <div class="editComment">
 
-                    {% if app.user %}
+        <h3>Modifier Mon Commentaire</h3>
+
+            {% if app.user %}
                     
-                            {{ form(formEditComment) }}
+                {{ form(formEditComment) }}
                             
-                    {% endif %}
+            {% endif %}
 
     </div>
     

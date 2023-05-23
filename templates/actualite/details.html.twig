@@ -31,10 +31,10 @@
                                 <p class="commentsText"> {{ comment.textePost }} </p>
                                 <p class="userPost"> User : {{ comment.user }} Posté Le : {{ comment.dateCreation|date("d/m/Y") }}</p>
                         
-                                {% if comment.user == app.user%}
+                                {% if comment.user == app.user %}
 
                                         <a href="{{ path('delete_comment',{'id':comment.id})}}">Supprimer</a> 
-                                        <a href="{{ path('edit_comment',{'id':comment.id})}}">adit</a> 
+                                        <a href="{{ path('edit_comment',{'id':comment.id})}}" onclick="window.open('{{ path('edit_comment',{'id':comment.id})}}', 'Modifier Commentaire' ,'height=400, width=800, top=100, left=400, toolbar=no, ');return false;">Edit</a> 
 
                                 {% endif %}
 

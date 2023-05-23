@@ -62,7 +62,7 @@
 
                         {% if app.user and is_granted("ROLE_ADMIN") %}
 
-                                <li> <a href="{{ path('admin') }}">Admin</a></li>
+                                <li> <a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;">Admin</a></li>
                                 
                             {% endif %}
                     

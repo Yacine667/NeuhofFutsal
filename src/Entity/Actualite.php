@@ -2,27 +2,44 @@
 
 namespace App\Entity;
 
-use App\Repository\ActualiteRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
+use App\Repository\ActualiteRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ActualiteRepository::class)]
+
+#[ApiResource(
+    operations: [
+        new Get(normalizationContext: ['groups' => 'actualite:item']),
+        new GetCollection(normalizationContext: ['groups' => 'actualite:list'])
+    ],
+    paginationEnabled: false,
+)]
+
 class Actualite
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['actualite:list', 'actualite:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['actualite:list', 'actualite:item'])]
     private ?string $titre_actualite = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups(['actualite:list', 'actualite:item'])]
     private ?string $texte_actualite = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['actualite:list', 'actualite:item'])]
     private ?string $photo_actualite = null;
 
     #[ORM\OneToMany(mappedBy: 'actualite', targetEntity: Post::class, orphanRemoval: true)]

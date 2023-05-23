@@ -598,8 +598,11 @@ border-radius: 10px;
   min-height: 80vh;
   margin: 5%;
   background-color: #000;
+  color: white;
+  text-align: center;
 
 }
+
 
 .imgPresentation {
 
@@ -655,9 +658,15 @@ border-radius: 10px;
   transition: all .5s ease-in-out;
 }
 
+.slide a {
+
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
 .slide  h3{
   position: absolute;
-  font-size: 24px;
+  font-size: 2em;
   bottom: 20px;
   left: 20px;
   margin: 0;
@@ -1271,8 +1280,9 @@ border-radius: 10px;
   flex-direction: row;
   border-radius: 7px;
   padding: 3%;
+  margin: 2%;
   background: rgba( 255, 255, 255, 0.1 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
 
@@ -1286,6 +1296,7 @@ border-radius: 10px;
 
 .textActu {
 
+  padding: 3%;
   color: white;
 }
 
@@ -1298,7 +1309,7 @@ border-radius: 10px;
   border-radius: 7px;
   padding: 3%;
   background: rgba( 255, 255, 255, 0.1 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
 }
@@ -1331,6 +1342,24 @@ color: white;
 .userPost {
 
   font-size: 0.8em;
+}
+
+.editComment {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 7px;
+  margin: 2%;
+  padding: 3%;
+  gap: 50px;
+  color: white;
+  background: rgba( 255, 255, 255, 0.1 );
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+
 }
 
 
