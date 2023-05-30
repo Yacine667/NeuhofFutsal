@@ -6,23 +6,25 @@
 
 <section class="indexActualite">
 
-    {% for actualite in actualites %}
+    <h2> Toutes Les Actualités Du Club </h2>
 
-        <div  onclick="document.location='{{ path('details_actualite', {'id': actualite.id}) }}'" class="owl-carousel custom-carousel owl-theme">
+        <div class="actuContainer">
 
-            <div class="item" style="background-image: url({{ actualite.photoactualite }})">
+        {% for actualite in actualites %}
 
-		        <div class="item-desc">
+                <div onclick="document.location='{{ path('details_actualite', {'id': actualite.id}) }}'" class="item" style="background-image: url({{ actualite.photoactualite }})">
 
-                    <p> {{ actualite.titreactualite }} </p>
+                    <div class="item-desc">
+
+                        <p> {{ actualite.titreactualite }} </p>
+
+                    </div>
 
                 </div>
 
-            </div>
+        {% endfor %}
 
         </div>
-
-    {% endfor %}
 
 </section>
 

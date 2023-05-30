@@ -34,7 +34,7 @@ class EquipeController extends AbstractController
     {
         $equipe = $doctrine->getRepository(Equipe::class)->findOneBy(['id' => 2 ] ,[]);
         return $this->render('equipe/index.html.twig', [
-            'equipe' => $equipe,
+            'equipe' => $equipe
         ]);
     }
 

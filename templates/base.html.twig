@@ -3,15 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/teamPage.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/actuPage.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/rencontrePage.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/logRegPage.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/homePage.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/base.css') }}" />
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
     </head>
-
+{# 
         <nav id="topNav">
 
             <ul>
@@ -71,10 +81,113 @@
 
             </ul>
             
-        </nav>
+        </nav> #}
 
 
+{# 
+<nav>
+
+   <ul>
+   
+
+   <li class="sub-menu-parent" tab-index="0"><a href="{{ path('app_actualite') }}">Actualités</a></li>
+
+        <li class="sub-menu-parent" tab-index="0">
+
+        <a href="{{ path('app_indexTeam') }}">Equipe U-8</a>
+
+        <ul class="sub-menu">
+            <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
+            <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+            <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+        </ul>
+
+        </li>
+
+        <li class="sub-menu-parent" tab-index="0">
+
+        <a href="{{ path('app_indexTeam2') }}">Equipe Ad</a>
+
+        <ul class="sub-menu">
+            <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
+            <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
+            <li> <a href="{{ path('app_rencontre2') }}">Matchs</a></li>
+        </ul>
+
+        </li>
+        <li class="sub-menu-parent" tab-index="0"><img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal"></li>
+            {% if app.user %}
+
+                            <li class="sub-menu-parent" tab-index="0"><a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+
+                        {% else %}
+
+                            <li class="sub-menu-parent"> <a href="{{ path('app_login') }}">Se Connecter</a></li>
+                            <li class="sub-menu-parent"> <a href="{{ path('app_register') }}">S'inscrire</a></li>
+
+            {% endif %}
+
+            {% if app.user and is_granted("ROLE_ADMIN") %}
+
+                <li class="sub-menu-parent"> <a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;">Admin</a></li>
+                                
+            {% endif %}
+        
+
+
+   </ul>
+
+ </nav> #}
+
+<nav class="nav">
+        <div class="containerNav">
+            <div class="logo">
+                <img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal">
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="{{ path('app_actualite') }}">Actualités</a></li>
+                    <li><a href="{{ path('app_indexTeam') }}">Equipe U-8</a>
+                        <ul class="sub-menu">
+                            <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
+                            <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+                            <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ path('app_indexTeam2') }}">Equipe Ad</a>
+                        <ul class="sub-menu">
+                            <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
+                            <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
+                            <li> <a href="{{ path('app_rencontre2') }}">Matchs</a></li>
+                        </ul>
+                    </li>
+                    {% if app.user %}
+                    <li><a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+                    {% else %}
+                    <li><a href="{{ path('app_login') }}">Se Connecter</a></li>
+                    <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+                    {% endif %}
+                    {% if app.user and is_granted("ROLE_ADMIN") %}
+                    <li><a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;"><i class="fa-solid fa-toolbox"></i><span>Page Admin</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+
+     {% for message in app.flashes('success') %}
+            <div class="flashMessage">
+                <p>{{ message }}</p>
+            </div>
+            
+        {% endfor %}
     <body>
+
 
         {% block body %}
 
@@ -130,7 +243,18 @@
         {% block javascripts %}
 
             <script src="{{ asset('js/script.js') }}"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script>
+                $(window).scroll(function() {
+                    if ($(document).scrollTop() > 50) {
+                        $('.nav').addClass('affix');
+                        console.log("OK");
+                    } else {
+                        $('.nav').removeClass('affix');
+                    }
+                });
+                
+    </script>
 
         {% endblock %}
 

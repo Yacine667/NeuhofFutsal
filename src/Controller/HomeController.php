@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(ManagerRegistry $doctrine, Actualite $actualites = null, Request $request): Response
     {
 
-        $actualites = $doctrine->getRepository(Actualite::class)->findAll();
+        $actualites = $doctrine->getRepository(Actualite::class)->findBy(array(),array('id' => 'DESC'),3 ,0);
         return $this->render('home/index.html.twig', [
             'actualites' => $actualites,
         ]);

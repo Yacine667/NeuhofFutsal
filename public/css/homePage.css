@@ -1,0 +1,345 @@
+/* HOME  */
+
+#mainIntro {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #040404;
+    background-image: url(https://i.gifer.com/o6a.gif);
+    background-size: cover;
+}
+
+.txtIntro {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.txtIntro :hover {
+
+    filter: hue-rotate(-0.25turn);
+    -webkit-filter: hue-rotate(-0.25turn);
+    transition-duration: 2s;
+    transition-property: filter;
+
+}
+
+
+.txtIntro h1 {
+
+    text-align: left;
+    font-family: 'Black Ops One', cursive;
+    background-size: cover;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: 5;
+    text-transform: uppercase;
+    font-size: 15em;
+    color: rgba(255, 0, 0, 0.043);
+    background-image: url(https://i.gifer.com/2dfo.gif);
+
+}
+
+
+.txtIntro h2 {
+
+    text-align: left;
+    font-family: 'Black Ops One', cursive;
+    background-size: cover;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    line-height: 1;
+    font-weight: bold;
+    letter-spacing: 5;
+    text-transform: uppercase;
+    font-size: 10em;
+    color: rgba(255, 0, 0, 0.043);
+    background-image: url(https://i.gifer.com/2dfo.gif);
+
+}
+
+
+.homeIntro {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+    margin-top: 3%;
+    min-height: 80vh;
+    max-width: 40vw;
+    margin-left: 5%;
+    background: rgba(255, 0, 0, 0);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    margin-top: 5%;
+    border-radius: 10px;
+
+}
+
+
+.homeIntro h2 {
+
+    font-size: 2.8em;
+    margin-bottom: 10%;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+    font-family: 'Quantico', sans-serif;
+
+}
+
+
+.homeIntro p {
+
+    font-size: 1.4em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Quantico', sans-serif;
+
+}
+
+
+#homePresentation {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #040404;
+    background-image: url(https://i.gifer.com/8Etj.gif);
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: 5%;
+
+}
+
+
+.textePresentation {
+
+    min-width: 40vw;
+    min-height: 80vh;
+    margin: 5%;
+    background: rgba(255, 0, 0, 0);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    padding: 5%;
+    font-family: 'Quantico', sans-serif;
+
+}
+
+
+.textePresentation h3 {
+
+    font-size: 2.8em;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+
+}
+
+
+.textePresentation p {
+
+    font-size: 1.4em;
+
+}
+
+
+.imgPresentation {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 50vw;
+    padding: 3%;
+    margin-right: 2%;
+    background: rgba(255, 0, 0, 0);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    border-radius: 10px;
+
+}
+
+.imgPresentation img {
+
+    max-width: 40vw;
+    border-radius: 10px;
+
+}
+
+.imgPresentation h4 {
+
+    color: white;
+    margin-top: 2%;
+    font-size: 1.2em;
+    font-family: 'Quantico', sans-serif;
+
+}
+
+.imgPresentation p {
+
+    color: white;
+    font-size: 0.8em;
+    font-family: 'Quantico', sans-serif;
+
+}
+
+#homeActuContainer {
+
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+#homeActuContainer h2 {
+
+    color: rgb(255, 255, 255);
+    font-family: 'Quantico', sans-serif;
+    font-size: 3em;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+
+}
+
+
+#slideActu {
+
+    display: flex;
+    padding-bottom: 5%;
+    
+
+}
+
+
+.slide {
+
+    height: 80vh;
+    border-radius: 20px;
+    margin-top: 5%;
+    margin-right: 1%;
+    margin-left: 1%;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .5s ease-in-out;
+    position: relative;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+
+}
+
+#slideActu :hover {
+
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+
+}
+
+
+.slide a {
+
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+
+}
+
+
+.slide h3 {
+
+    position: absolute;
+    font-size: 2.6em;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+
+}
+
+
+.slide.active {
+
+    flex: 10;
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+
+}
+
+.slide.active h3 {
+
+    opacity: 1;
+    transition: opacity .3s ease-in .4s;
+
+}
+
+#sponsorContainer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    background-color: #040404;
+    background-image: url(https://i.gifer.com/EkA5.gif);
+    background-size: cover;
+    box-shadow: 0 8px 32px 0 rgb(135, 31, 31);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+
+}
+
+#sponsorContainer h2 {
+
+    color: rgb(255, 255, 255);
+    font-family: 'Quantico', sans-serif;
+    font-size: 2.4em;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+    margin-top: 5%;
+
+}
+
+.sponsorRow {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sponsor {
+
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.sponsor img {
+
+width: 100%;
+border-radius: 10px;
+box-shadow: 0 8px 32px 0 rgb(135, 31, 31);
+
+}

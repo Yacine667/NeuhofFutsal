@@ -4,7 +4,12 @@
 
 {% block body %}
 
-<div id="containerCard">
+
+<div id="wrapperCard">
+
+        <div class="nameTeam"><h2>{{ equipe.nomEquipe }}</h2></div>
+
+                <div id="containerCard">
 
 {% for joueur in equipe.joueurs %}
 
@@ -22,6 +27,7 @@
 
                                 <div class="info">
                                         <div class="position">{{ joueur.postejoueur }}</div>
+                                        <div class="numberPlayer"> # {{ joueur.numerojoueur }}</div>
                                         <div class="club"><div><img src='/img/1.png'></div>
                                 </div>				
                         </div>

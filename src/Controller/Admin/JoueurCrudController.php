@@ -35,7 +35,7 @@ class JoueurCrudController extends AbstractCrudController
             ->setUploadedFileNamePattern('/img/joueurs/[slug].[extension]');
         yield Field::new('video_joueur')
             ->hideOnIndex();
-        yield Field::new('note_attaque')
+        yield Field::new('note_physique')
             ->hideOnIndex();
         yield Field::new('note_defense')
             ->hideOnIndex();
@@ -43,7 +43,7 @@ class JoueurCrudController extends AbstractCrudController
             ->hideOnIndex();
         yield Field::new('note_drible')
             ->hideOnIndex();
-        yield Field::new('note_gardien')
+        yield Field::new('note_vitesse')
             ->hideOnIndex();
         yield Field::new('note_tir')
             ->hideOnIndex();

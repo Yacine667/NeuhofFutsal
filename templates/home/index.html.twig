@@ -28,9 +28,9 @@
 
     <div class="textePresentation">
 
-        <h3>Le Neuhof Futsal</h3>
+        <h3>Fondateur Du Club</h3>
 
-        <p>BLABLABLAB LABLABLABLABLABLABLABLABLABLABLA BLABLABLABLABLABLABLABLABLABLAB LABLABLABLA</p>
+        <p>À seulement 26 ans, Kenny Tanovan dirige le Neuhof Futsal (D2) d’une main de maître. Investi et passionné, le jeune président a été à l’origine de sa création en 2016.Kenny Tanovan est une figure emblématique du quartier du Neuhof à Strasbourg. Réputée comme étant une zone sensible de la ville, cela n’a pas empêché Kenny de s’y épanouir. Et d’emmener, grâce au sport et l’esprit d’équipe, toute une population derrière lui.</p>
     
     </div>
 
@@ -38,27 +38,45 @@
 
         <img src="{{asset('img/9.jpg')}}">
         <h4>M. Kenny Tanovan</h3>
-        <p>( Président Du Club ) <p>
+        <p> Président Du Club  <p>
     
     </div>
 
 </section>
 
 
-<section id="slideActu">
+<section id="homeActuContainer">
 
-    {% for actualite in actualites %}
+    <h2> Dernières Actualités Du Club </h2>
 
-        <div class="slide" style="background-image: url({{ actualite.photoactualite }})">
+        <div id="slideActu">
 
-            <h3><a href="{{ path('details_actualite', {'id': actualite.id}) }}">{{ actualite.titreactualite }}</a></h3>
+            {% for actualite in actualites %}
 
-        </div>
+                <div class="slide" style="background-image: url({{ actualite.photoactualite }})">
+            
+                <h3><a href="{{ path('details_actualite', {'id': actualite.id}) }}">{{ actualite.titreactualite }}</a></h3>
 
-    {% endfor %}
+                </div>
+
+            {% endfor %}
+
+    </div>
 
 </section>
 
+<section id="sponsorContainer">
+
+    <h2> Nos Sponsors</h2>
+
+        <div class="sponsorRow">
+
+            <div class="sponsor"><a href="https://www.kg5.fr/" target="_blank"><img src="{{asset('img/sponsors/KG5.jpg')}}"></a></div>
+            <div class="sponsor"><a href="https://www.prestige-securite-strasbourg.com" target="_blank"><img src="{{asset('img/sponsors/prestige.jpg')}}"></a></div>
+
+        </div>
+
+</section>
 
 {% endblock %}
 

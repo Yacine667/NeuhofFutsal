@@ -41,7 +41,7 @@ class ActualiteController extends AbstractController
             $post->setActualite($actualite);
             $entityManager->persist($post);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Commentaire Ajouté !');
             return $this->redirectToRoute('details_actualite',['id'=> $actualite->getId()
             ]);
         }
@@ -54,19 +54,36 @@ class ActualiteController extends AbstractController
     
     }
 
- #[Route('/comment/{id}', name: 'delete_comment')]
+ #[Route('/comment/delete/{id}', name: 'delete_comment')]
 
     public function deleteComment(ManagerRegistry $doctrine,Post $post)
   {
 
+    if ($post->getUser() == $this->getUser()) {
     $actuId = $post->getActualite()->getId();
     $entityManager=$doctrine->getManager();
     $entityManager->remove($post) ; 
     $entityManager->flush();
-
-
-   return $this->redirectToRoute('details_actualite',['id'=> $actuId
+    $this->addFlash('success', 'Commentaire Supprimé !');
+    return $this->redirectToRoute('details_actualite',['id'=> $actuId
 ]);
+
+    }
+
+    elseif ($this->isGranted('ROLE_ADMIN')) {
+        $actuId = $post->getActualite()->getId();
+        $entityManager=$doctrine->getManager();
+        $entityManager->remove($post) ; 
+        $entityManager->flush();
+        $this->addFlash('success', 'Commentaire Supprimé !');
+        return $this->redirectToRoute('details_actualite',['id'=> $actuId
+    ]);}
+
+else {
+    $actuId = $post->getActualite()->getId();
+    $this->addFlash('success', "Vous N'avez Pas Les Droits Requis");
+   return $this->redirectToRoute('details_actualite',['id'=> $actuId
+]);}
 
 }
 

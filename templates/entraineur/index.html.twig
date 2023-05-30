@@ -4,9 +4,10 @@
 
 {% block body %}
 
+<section id="entraineurContainer">
 
-    <p> {{ entraineurs.nomentraineur }} </p>
-    <p> {{ entraineurs.prenomentraineur }} </p>
+    <h2 class="titleTrainer"> {{ equipe.entraineur.nomentraineur }} {{ equipe.entraineur.prenomentraineur }} </h2>
+    <p class="teamTrainer"> ( {{ equipe.nomequipe }} )</p>
 
 <div class="wrapper">
 
@@ -22,7 +23,7 @@
 
             <div class="top-section">
 
-              <img class="player-photo" src={{ entraineurs.photoentraineur }} alt="Photo De L'entraineur">
+              <img class="player-photo" src={{ equipe.entraineur.photoentraineur }} alt="Photo De L'entraineur">
 
             </div>
 
@@ -30,9 +31,9 @@
 
           <div class="bottom-section">
 
-            <h1>{{ entraineurs.nomentraineur }}</h1>
+            <h1>{{ equipe.entraineur.nomentraineur }}</h1>
 
-            <h2>{{ entraineurs.prenomentraineur}}</h2>
+            <h2>{{ equipe.entraineur.prenomentraineur}}</h2>
 
             <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
 
@@ -68,7 +69,7 @@
 
             <div class="player-bio">
 
-              <h2>{{ entraineurs.nomentraineur}} {{ entraineurs.prenomentraineur}}</h2>
+              <h2>{{ equipe.entraineur.nomentraineur}} {{ equipe.entraineur.prenomentraineur}}</h2>
 
              <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
 
@@ -85,5 +86,7 @@
   </div>
 
 </div>
+
+<section>
 
 {% endblock %}

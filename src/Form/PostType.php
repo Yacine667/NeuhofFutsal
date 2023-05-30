@@ -17,7 +17,7 @@ class PostType extends AbstractType
             
             ->add('texte_post', TextareaType::class, [
                 'label' => false,
-                'attr' => ['class' => 'messageBox','Maxlength' => 255,]
+                'attr' => ['class' => 'messageBox','Maxlength' => 2500,]
             ])  ;
             
             if(!$options['edit']){

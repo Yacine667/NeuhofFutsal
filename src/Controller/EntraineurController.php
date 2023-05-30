@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Equipe;
 use App\Entity\Entraineur;
 use Doctrine\ORM\Mapping\Id;
 use App\Repository\EntraineurRepository;
@@ -14,20 +15,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class EntraineurController extends AbstractController
 {
     #[Route('/entraineur', name: 'app_entraineur')]
-    public function index(EntraineurRepository $tr,ManagerRegistry $doctrine, Entraineur $entraineurs = null, Request $request): Response
+    public function index(ManagerRegistry $doctrine, Equipe $equipe = null, Request $request): Response
     {
 
-        $entraineurs = $tr->findTrainerByEquipe();
+        $equipe = $doctrine->getRepository(Equipe::class)->findOneBy(['id' => 1 ] ,[]);
+
         return $this->render('entraineur/index.html.twig', [
-            'entraineurs' => $entraineurs,]);
+            'equipe' => $equipe 
+        ]);
 }
 
 #[Route('/entraineur2', name: 'app_entraineur2')]
-public function index2(EntraineurRepository $tr,ManagerRegistry $doctrine, Entraineur $entraineurs = null, Request $request): Response
+public function index2(ManagerRegistry $doctrine, Equipe $equipe = null, Request $request): Response
 {
 
-    $entraineurs = $tr->findTrainerByEquipe2();
+    $equipe = $doctrine->getRepository(Equipe::class)->findOneBy(['id' => 2 ] ,[]);
+
     return $this->render('entraineur/index.html.twig', [
-        'entraineurs' => $entraineurs,]);
+        'equipe' => $equipe 
+    ]);
 }
+
 }

@@ -12,7 +12,7 @@
 
                         <div class="textActu">
 
-                                <p> {{ actualite.titreactualite }} </p>
+                                <h2> {{ actualite.titreactualite }} </h2>
                                 <p> {{ actualite.texteactualite }} </p>
 
                         </div>
@@ -29,15 +29,24 @@
                         <div class="comments">
 
                                 <p class="commentsText"> {{ comment.textePost }} </p>
-                                <p class="userPost"> User : {{ comment.user }} Posté Le : {{ comment.dateCreation|date("d/m/Y") }}</p>
+                                        <div class="footComment">
+
+                                                <p class="userPost"> User : {{ comment.user }} </p>
+                                                <p class="userPost">Posté Le : {{ comment.dateCreation|date("d/m/Y") }}</p>
+
+                                        
                         
                                 {% if comment.user == app.user %}
 
-                                        <a href="{{ path('delete_comment',{'id':comment.id})}}">Supprimer</a> 
-                                        <a href="{{ path('edit_comment',{'id':comment.id})}}" onclick="window.open('{{ path('edit_comment',{'id':comment.id})}}', 'Modifier Commentaire' ,'height=400, width=800, top=100, left=400, toolbar=no, ');return false;">Edit</a> 
+                                        <a href="{{ path('delete_comment',{'id':comment.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
+                                        <a href="{{ path('edit_comment',{'id':comment.id})}}" onclick="window.open('{{ path('edit_comment',{'id':comment.id})}}', 'Modifier Commentaire' ,'height=400, width=800, top=100, left=400, toolbar=no, ');return false;"><i class="fa-regular fa-pen-to-square"></i></a> 
+                                        
+                                {% elseif app.user and is_granted("ROLE_ADMIN") %}
 
+                                        <a href="{{ path('delete_comment',{'id':comment.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
+                    
                                 {% endif %}
-
+</div>
                         </div>
 
                 {% endfor %}
