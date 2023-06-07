@@ -4,81 +4,42 @@
 
 {% block body %}
 
-<h1>{{ joueur.nomjoueur}}</h1>
+<section id="containerDetailPlayer">
 
+  <div class="container">
 
-<div class="wrapper">
+    <div class="front">
 
-  <div class="cols">
+      <div class="inner">
 
-    <div class="col">
+        <div class="top-section">
 
-      <div class="container">
-
-        <div class="front">
-
-          <div class="inner">
-
-            <div class="top-section">
-
-              <img class="player-photo" src={{ joueur.photojoueur }} alt="Photo Du Joueur">
-
-            </div>
-
-          </div>
-
-          <div class="bottom-section">
-
-            <h1>{{ joueur.nomjoueur}}</h1>
-
-            <h2>{{ joueur.prenomjoueur}}</h2>
-
-            <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
-
-          </div>
+          <img class="player-photo" src={{ joueur.photojoueur }} alt="Photo Du Joueur">
 
         </div>
 
+      </div>
 
-        <div class="back">
+      <div class="bottom-section">
 
-          <div class="inner">
+        <h2>#{{ joueur.numerojoueur}}</h2>
+        <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
+            
+      </div>
 
-            <div class="top-section">
+    </div>
 
-              <h2>Vitesse : {{ joueur.notevitesse}}</h2>
-              <h2>Tir : {{ joueur.notetir}}</h2>
-              <h2>Passe : {{ joueur.notepasse}}</h2>
-              <h2>Défense : {{ joueur.notedefense}}</h2>
-              <h2>Physique : {{ joueur.notephysique}}</h2>
-              <h2></h2>
-            </div>
-          </div>
-          <div class="bottom-section">
+    <div class="back">
 
-            <div class="player-details">
+      <div class="inner">
 
-              <div class="player-dates">
+        <div class="top-section">
 
-                <div class="birth-date">
-                  
-                    <span class="title">Date De Naissance : {{joueur.datenaissancejoueur |date("m/d/Y")}}</span>
-                  
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="player-bio">
-
-              <h2>{{ joueur.nomjoueur}} {{ joueur.prenomjoueur}}</h2>
-
-             <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
-
-            </div>
-
-          </div>
+          <span>Vitesse : {{ joueur.notevitesse}}</span>
+          <span>Tir : {{ joueur.notetir}}</span>
+          <span>Passe : {{ joueur.notepasse}}</span>
+          <span>Défense : {{ joueur.notedefense}}</span>
+          <span>Physique : {{ joueur.notephysique}}</span>
 
         </div>
 
@@ -88,6 +49,25 @@
 
   </div>
 
-</div>
+  <div class="containerInfoPlayer">
+
+    <div>
+      
+      <span>{{ joueur.nomjoueur}}</span>
+      <span>{{ joueur.prenomjoueur}}</span>
+      <span>{{ joueur.equipe.nomequipe}}</span>
+      <span>Date De Naissance : {{joueur.datenaissancejoueur |date("m/d/Y")}}</span>
+      
+    </div>
+     
+  </div>
+
+  <div class="animeName">
+
+    <span>@{{ joueur.prenomjoueur}}</span>
+
+  </div>
+
+</section>
 
 {% endblock %}

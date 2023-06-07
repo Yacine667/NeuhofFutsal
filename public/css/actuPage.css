@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 8%;
+    margin-top: 6%;
     background-color: #040404;
     background-image: url(https://i.gifer.com/EkA5.gif);
     background-size: cover;
@@ -17,8 +17,11 @@
   .indexActualite h2 {
 
     text-shadow: rgb(255, 0, 0) 1px 0 10px;
-    font-size: 3em;
+    font-size: 4em;
     margin-bottom: 2%;
+    font-family: 'Quantico', sans-serif;
+    margin-bottom: 5%;
+    color: white;
 
   }
 
@@ -117,6 +120,7 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    min-height: 80vh;
     border-radius: 7px;
     padding: 2%;
     margin: 2%;
@@ -142,13 +146,16 @@
     padding: 3%;
     color: white;
     text-align: center;
+    
 
   }
 
   .textActu h2 {
 
-    font-size: 2.4em;
+    font-size: 2.8em;
     margin-bottom: 20%;
+    font-family: 'Quantico', sans-serif;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
   }
   
   .commentContainer {
@@ -156,7 +163,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     border-radius: 7px;
     padding: 3%;
     background: rgba(0, 0, 0, 0.398);
@@ -190,7 +197,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5%;
+  margin-bottom: 3%;
+  padding: 2%;
   color: white;
   background: rgba(0, 0, 0, 0.398);
   box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
@@ -202,7 +210,7 @@
   
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 100%;
   
   }
   
@@ -215,7 +223,271 @@
   
     font-size: 0.8em;
   }
+
+
+  .modal-btn {
+
+    background: #f403031b;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    font-family: 'Quantico', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 2%;
+
+  }
+
+  .modal-btn:hover {
+
+    background: #f403038e;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #f40303cb,
+                0 0 25px #f40303b5,
+                0 0 50px #f40303a4,
+                0 0 100px #f40303d9;
+
+  }
+
+  .modal-container {
+
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s;
+    z-index: 3;
+
+  }
+
+  .modal-container.active {
+
+    visibility: visible;
+
+  }
+
+  .overlay {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+
+  }
+
+  .modal-container.active .overlay {
+
+    opacity: 1;
+    transition: opacity 0.4s  ease-out;
+
+  }
+
+  .modal {
+
+    opacity: 0;
+    width: 95%;
+    max-width: 500px;
+    min-width: 300px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.736);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: opacity 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .modal-container.active .modal {
+
+    opacity: 1;
+    transition: opacity 0.4s  ease-out;
+    -webkit-animation: inMod 0.6s forwards;
+    animation: inMod 0.6s forwards;
+
+  }
+
+  @-webkit-keyframes inMod {
+    0% {
+      -webkit-transform: translate(50%,50%);
+  }
+    50% {
+        -webkit-transform: translate(-100%,-100%);
+    }
+    100% {
+        -webkit-transform: translate(-50%,-50%);
+    }
+  }
+
+  .modal h2 {
+
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: red;
+  }
+
+  .close-modal {
+
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: red;
+    color: white;
+  }
+
+  .addMessage textarea {
+
+    width: 100%;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 2%;
+    font-family: 'Quantico', sans-serif;
+    margin-bottom: 5%;
+
+  }
+
+  .ajouter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ajouter button {
+    background: #0000007b;
+    margin-top: 4px;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    font-family: 'Quantico', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+
+  }
+
+  .ajouter button:hover {
+
+    background: #f403038e;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #f40303cb,
+                0 0 25px #f40303b5,
+                0 0 50px #f40303a4,
+                0 0 100px #f40303d9;
+
+  }
+
+  /* Page Edit Commentaire */
   
+
+  #editContainer {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quantico', sans-serif;
+    background-color: #040404;
+    background-image: url(https://i.gifer.com/EkA5.gif);
+    background-size: cover;
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+  }
+
+  #post {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #editContainer h3 {
+
+    font-size: 2em;
+    font-family: 'Quantico', sans-serif;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+    text-align: center;
+    
+
+  }
+
+  .originalComment {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 7px;
+    margin-top: 12%;
+    margin-right: 2%;
+    margin-bottom: 8%;
+    padding: 3%;
+    color: white;
+    background: rgba(0, 0, 0, 0.398);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    min-height: 70vh;
+    min-width: 40vw;
+  
+  }
+
+.originalComment p {
+  
+  background: rgba(0, 0, 0, 0.398);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  border-radius: 10px;
+  text-align: center;
+  min-width: 100%;
+  min-height: 350px;
+  max-height: 100%;
+  padding: 5%;
+  margin: 2%;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+
+
   .editComment {
   
     display: flex;
@@ -223,14 +495,76 @@
     align-items: center;
     flex-direction: column;
     border-radius: 7px;
-    margin: 2%;
+    min-height: 70vh;
+    min-width: 40vw;
+    margin-top: 12%;
+    margin-right: 2%;
+    margin-bottom: 8%;
     padding: 3%;
-    gap: 50px;
     color: white;
-    background: rgba( 255, 255, 255, 0.1 );
+    background: rgba(0, 0, 0, 0.398);
     box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
     backdrop-filter: blur( 8.5px );
     -webkit-backdrop-filter: blur( 8.5px );
   
   }
   
+  .editComment textarea {
+
+    margin-top: 10%;
+    width: 300px;
+    max-width: 300px;
+    height: 350px;
+    padding: 2%;
+    border-radius: 10px;
+    font-family: 'Quantico', sans-serif;
+    text-align: center;
+    color: white;
+    border: none;
+    background: rgba(0, 0, 0, 0.398);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    font-size: 1em;
+  }
+
+  .editComment button {
+
+    background: #0000007b;
+    margin-top: 4px;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px;
+    font-family: 'Quantico', sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5%;
+
+  }
+
+  .editComment button:hover {
+
+    background: #f403038e;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #f40303cb,
+                0 0 25px #f40303b5,
+                0 0 50px #f40303a4,
+                0 0 100px #f40303d9;
+
+  }
+
+  @media (max-width: 767px) {
+
+    #editContainer {
+
+      flex-direction: column;
+    }
+
+  }
+

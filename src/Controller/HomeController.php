@@ -20,4 +20,33 @@ class HomeController extends AbstractController
             'actualites' => $actualites,
         ]);
     }
+
+
+    #[Route('/CGU', name: 'app_cgu')]
+    public function CGU(): Response
+    {
+        
+        return $this->render('generalView/CGU.html.twig', [
+            
+        ]);
+    }
+
+    #[Route('/politiqueConfidentialite', name: 'app_politiqueConfidentialite')]
+    public function PolitiqueConfidentialite(): Response
+    {
+        
+        return $this->render('generalView/politiqueConfidentialite.html.twig', [
+            
+        ]);
+    }
+
+    #[Route('/planSite', name: 'app_planSite')]
+    public function PlanSite(): Response
+    {
+        
+        return $this->render('generalView/planSite.html.twig', [
+            
+        ]);
+    }
+    
 }

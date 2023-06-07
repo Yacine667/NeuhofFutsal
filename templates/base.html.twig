@@ -147,14 +147,14 @@
             <div id="mainListDiv" class="main_list">
                 <ul class="navlinks">
                     <li><a href="{{ path('app_actualite') }}">Actualités</a></li>
-                    <li><a href="{{ path('app_indexTeam') }}">Equipe U-8</a>
+                    <li><a href="{{ path('app_indexTeam') }}">Equipe U-9</a>
                         <ul class="sub-menu">
                             <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
                             <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
                             <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ path('app_indexTeam2') }}">Equipe Ad</a>
+                    <li><a href="{{ path('app_indexTeam2') }}">Equipe 1</a>
                         <ul class="sub-menu">
                             <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
                             <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
@@ -169,6 +169,9 @@
                     {% endif %}
                     {% if app.user and is_granted("ROLE_ADMIN") %}
                     <li><a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;"><i class="fa-solid fa-toolbox"></i><span>Page Admin</span></a></li>
+                    {% elseif app.user %}
+                    <li><a href="{{ path('app_profil', {'id': app.user.id}) }}">Profil</a></li>
+                    {% else %}
                     {% endif %}
                 </ul>
             </div>
@@ -201,31 +204,52 @@
 
         <div class="footer">
 
-            <div id="button"></div>
+            <div id="button"><i class="fa-solid fa-angles-up"></i></div>
 
                 <div id="container">
 
                     <div id="cont">
                         <div class="footer_center">
 
-                                <img src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal">              
+                            <img src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal"> 
+
+                            <ul class="wrapperIcon">
+
+                                <li class="icon facebook">
+                                    <span class="tooltip">Facebook</span>
+                                    <span><a href="https://www.facebook.com/neuhoffutsal/?locale=fr_FR" target="_blank" ><i class="fab fa-facebook-f"></i></a></span>
+                                </li>
+
+                                <li class="icon youtube">
+                                    <span class="tooltip">Youtube</span>
+                                    <span><a href="https://www.youtube.com/channel/UCYkvMXwmuT627DgaP92J-vA?app=desktop&cbrd=1" target="_blank" ><i class="fab fa-youtube"></i></a></span>
+                                </li>
+
+                            </ul>   
+
                         </div>
 
                         <div class="footer_center">
 
                             <h3>Nos Services</h3>
-                            <a href="#">CGU</a>
-                            <a href="#">Politique De Confidentialité</a>
-                            <a href="#">Protection Des Données Personnelles</a>
+                            <a href="{{ path('app_cgu') }}">CGU</a>
+                            <a href="{{ path('app_politiqueConfidentialite') }}">Politique De Confidentialité</a>
+                            <a href="{{ path('app_planSite') }}">Plan Du Site</a>
                             
                         </div>
 
                         <div class="footer_center">
 
-                            <h3>Qui Sommes-Nous ?</h3>
-                            <h4>Nous Contacter</h4>
-                            <h4>Nous Contacter</h4>
-                            <h4>Nous Contacter</h4>
+                            <h3>Nous Contacter : </h3>
+                            <h4><i class="fa-solid fa-phone"></i> 06 60 67 02 48</h4>
+                            <h4><i class="fa-solid fa-envelope"></i> Tanovan.k@gmail.com</h4>
+                            <h4><i class="fa-solid fa-location-dot"></i> 64 All. Reuss, 67100 Strasbourg</h4>
+                            
+                        </div>
+
+                        <div class="footer_center">
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.5722717705285!2d7.7717980766395725!3d48.54142827129095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c95e1254b1af%3A0xccde98642fc7d3bd!2s64%20All.%20Reuss%2C%2067100%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1686060774180!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             
                         </div>
 
@@ -253,8 +277,7 @@
                         $('.nav').removeClass('affix');
                     }
                 });
-                
-    </script>
+            </script>
 
         {% endblock %}
 

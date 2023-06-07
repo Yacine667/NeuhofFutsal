@@ -3,6 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const slides = document.querySelectorAll('.slide')
+  const titles = document.querySelectorAll('.maskTitle')
+
 
     for (const slide of slides){
 
@@ -10,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         clearActiveClasses()
         slide.classList.add('active')
+        slide.style.cursor = 'default'
+        maskTitle()
+
 
       })
 
@@ -20,6 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
       slides.forEach( (slide) =>{
 
         slide.classList.remove('active')
+
+      })
+
+    }
+
+    function maskTitle(){
+
+      titles.forEach( (title) =>{
+
+        title.style.opacity = "0";
 
       })
 
@@ -49,7 +64,22 @@ document.querySelector('.navTrigger').addEventListener('click',function () {
 
 function cacherDiv() {
   
-  document.querySelector('.flashMessage').style.visibility = "hidden";
+  document.querySelector('.flashMessage').style.display = "none";
 }
 
 setTimeout(() => {cacherDiv()}, 5000);
+
+
+
+
+// Formulaire ajouter commentaires page actu 
+
+const modalContainer = document.querySelector(".modal-container");
+const modalTriggers = document.querySelectorAll(".modal-trigger");
+
+modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
+
+function toggleModal(){
+
+  modalContainer.classList.toggle("active")
+}

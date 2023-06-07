@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block body %}
+
+<section id="containerProfil">
+
+    <div class="containerInfo">
+
+        <h2>Mon Profil : </h2>
+        <h3>Pseudo : {{ user.pseudo }}</h3>
+        <h3>E-mail : {{ user.email }}</h3>
+        <a href="{{ path('profil_delete', {'id': app.user.id}) }}">Supprimer le compte</a>
+    
+    </div>
+
+    <div class="containerPostProfil">
+
+         <h2>Tout Mes Commentaires : </h2>
+
+        {% for post in user.post %}
+
+            <div class="postProfil">
+
+                <div class="postItems">
+
+                    <p>{{ post.textepost }}</p>
+                    <span>Posté Le : {{ post.dateCreation|date("d/m/Y") }}</span>
+
+
+                </div>
+
+                <div class="postActions">
+
+                    <a href="{{ path('delete_comment',{'id':post.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
+                    <a href="{{ path('edit_comment',{'id':post.id})}}" class="modal-btn modal-trigger"><i class="fa-regular fa-pen-to-square"></i></a> 
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+                
+
+</section>
+{% endblock %}

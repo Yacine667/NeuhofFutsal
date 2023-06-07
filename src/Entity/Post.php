@@ -22,7 +22,6 @@ class Post
     private ?DateTimeInterface $dateCreation = null;
 
     #[ORM\ManyToOne(inversedBy: 'post')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'post')]

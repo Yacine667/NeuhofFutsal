@@ -32,7 +32,7 @@
                     {% if now > rencontre.rencontre.daterencontre %}
 
                         <tr>
-                            <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> <a href="{{ path('app_equipe') }}">{{ rencontre.equipe1 }}</a> </td>  
+                            <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe1 }} </td>  
                             <td> VS </td>                          
                             <td> <img src="{{ rencontre.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe2 }} </td>  
                             <td>{{ rencontre.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
@@ -62,7 +62,7 @@
                             {% if now <= rencontre.rencontre.daterencontre %}
 
                                 <tr>
-                                    <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> <a href="{{ path('app_equipe2') }}">{{ rencontre.equipe1 }}</a> </td> 
+                                    <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe1 }}</a> </td> 
                                     <td> VS </td>                          
                                     <td> <img src="{{ rencontre.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe2 }} </td> 
                                     <td>{{ rencontre.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>

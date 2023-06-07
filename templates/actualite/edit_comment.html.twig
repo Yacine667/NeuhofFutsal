@@ -1,8 +1,18 @@
-<link rel="stylesheet" href="{{ asset('css/actuPage.css') }}" />
+{% extends 'base.html.twig' %}
 
 {% block title %}Modifier Mon Commentaire{% endblock %}
 
 {% block body %}
+
+<section id="editContainer">
+
+    <div class="originalComment">
+
+        <h3> Commentaire Original : </h3>
+
+        <p> {{ post.textePost }} </p>
+
+    </div>
 
     <div class="editComment">
 
@@ -16,4 +26,6 @@
 
     </div>
     
+</section>
+
 {% endblock %}

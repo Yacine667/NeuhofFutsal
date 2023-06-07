@@ -23,41 +23,87 @@
 
 <div class="commentContainer">
 
+        {% if app.user %}
+
+                <button class="modal-btn modal-trigger">Ajouter Un Commentaire</button>
+
+                        <div class="modal-container">
+
+                                <div class="overlay modal-trigger"></div>
+
+                                <div class="modal">
+
+                                <h2>Ajouter Un Commentaire</h2>
+
+                                        <button class="close-modal modal-trigger">X</button>
+
+                                <div id="addMessage">
+
+                                        {{ form_start(formAddPost) }}
+
+                                <div class="addMessage">
+
+                                        {{ form_row(formAddPost.texte_post) }}
+
+                                </div>
+
+                                <div class="ajouter">
+
+                                         {{ form_row(formAddPost.ajouter) }}
+                                         
+                                </div>
+
+                                {{ form_end(formAddPost) }}
+
+                                </div>
+
+                                </div>
+                        </div>
+                        
+        {% endif %}
+
         <div class="commentWrapper">
 
                 {% for comment in actualite.post %}
+
                         <div class="comments">
 
                                 <p class="commentsText"> {{ comment.textePost }} </p>
+
                                         <div class="footComment">
 
-                                                <p class="userPost"> User : {{ comment.user }} </p>
-                                                <p class="userPost">Posté Le : {{ comment.dateCreation|date("d/m/Y") }}</p>
+                                                {% if comment.user == null %}
 
+                                                        <span class="userPost">Utilisateur Supprimé</span>
+
+                                                {% else %}
+
+                                                        <span class="userPost"> User : {{ comment.user }} </span>
+
+                                                {% endif %}
+                                                
+                                                        <span class="userPost">Posté Le : {{ comment.dateCreation|date("d/m/Y") }}</span>
+
+                                                {% if comment.user == app.user and app.user != null %}
+
+                                                        <a href="{{ path('delete_comment',{'id':comment.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
+                                                        <a href="{{ path('edit_comment',{'id':comment.id})}}" ><i class="fa-regular fa-pen-to-square"></i></a> 
                                         
-                        
-                                {% if comment.user == app.user %}
+                                                {% elseif app.user and is_granted("ROLE_ADMIN") %}
 
-                                        <a href="{{ path('delete_comment',{'id':comment.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
-                                        <a href="{{ path('edit_comment',{'id':comment.id})}}" onclick="window.open('{{ path('edit_comment',{'id':comment.id})}}', 'Modifier Commentaire' ,'height=400, width=800, top=100, left=400, toolbar=no, ');return false;"><i class="fa-regular fa-pen-to-square"></i></a> 
-                                        
-                                {% elseif app.user and is_granted("ROLE_ADMIN") %}
+                                                        <a href="{{ path('delete_comment',{'id':comment.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
 
-                                        <a href="{{ path('delete_comment',{'id':comment.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
+                                                {% elseif app.user == null %}
+
+                                                        
                     
-                                {% endif %}
+                                                {% endif %}
 </div>
                         </div>
 
                 {% endfor %}
         </div>
 
-
-                {% if app.user %}
-                
-                        {{ form(formAddPost) }}
-                        
-                {% endif %}
 
 </div>
 {% endblock %}

@@ -100,11 +100,13 @@ public function editComment(ManagerRegistry $doctrine, Post $post, Request $requ
         if($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
             $em->flush();
+            $this->addFlash('success', 'Commentaire Modifié !');
             return $this->redirectToRoute('details_actualite', ['id' => $actuId]);
         }
 
         return $this->render('actualite/edit_comment.html.twig', [
             'formEditComment' => $form->createView(),
+            'post' => $post
         ]);
     } else {
         return $this->redirectToRoute("app_home");

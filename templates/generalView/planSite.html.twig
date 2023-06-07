@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plan Du Site{% endblock %}
+
+{% block body %}
+
+<section id="planSite">
+
+    <h2 class="titlePlan"> Plan Du Site </h2>
+
+    <div class="mainLink"><a href="{{ path('app_home') }}">Accueil</a></div>
+
+    <div class="mainLink"><a href="{{ path('app_actualite') }}">Actualités</a></div>
+
+    <div class="mainLink"><a href="{{ path('app_indexTeam') }}">Equipe U-9</a>
+
+        <div class="targetLink">
+        
+            <a href="{{ path('app_equipe') }}">Effectif</a>
+            <a href="{{ path('app_entraineur') }}">Entraineur</a>
+            <a href="{{ path('app_rencontre') }}">Matchs</a>
+        
+        </div>
+    
+    </div>
+
+    <div class="mainLink"><a href="{{ path('app_indexTeam2') }}">Equipe 1</a>
+
+        <div class="targetLink">
+        
+            <a href="{{ path('app_equipe2') }}">Effectif</a>
+            <a href="{{ path('app_entraineur2') }}">Entraineur</a>
+            <a href="{{ path('app_rencontre2') }}">Matchs</a>
+        
+        </div>
+    
+    </div>
+
+    <div class="mainLink"><a href="{{ path('app_cgu') }}">CGU</a></div>
+
+    <div class="mainLink"><a href="{{ path('app_politiqueConfidentialite') }}">Politique De Confidentialité</a></div>
+
+    <div class="mainLink"><a href="{{ path('app_planSite') }}">Plan Du Site</a></div>
+    
+    
+
+
+
+</section>
+
+
+
+{% endblock %}

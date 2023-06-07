@@ -181,6 +181,43 @@
 
 }
 
+.imgPresentation img:hover {
+
+    cursor: pointer;
+
+}
+
+.photoModal {
+
+    opacity: 0;
+    width: 95%;
+    max-width: 60%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;  
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: opacity 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+
+}
+
+.modal-container.active .photoModal {
+
+    opacity: 1;
+    transition: opacity 0.4s  ease-out;
+    -webkit-animation: inMod 0.6s forwards;
+    animation: inMod 0.6s forwards;
+
+  }
+
 .imgPresentation h4 {
 
     color: white;
@@ -223,7 +260,6 @@
 
     display: flex;
     padding-bottom: 5%;
-    
 
 }
 
@@ -246,6 +282,35 @@
     filter: brightness(50%);
     -webkit-filter: brightness(50%);
 
+
+}
+
+.slide span {
+
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 20%;
+    color: rgb(255, 255, 255);
+    font-family: 'Quantico', sans-serif;
+    font-size: 3em;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+    padding: 2%;
+    max-width: 80%;
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.slide:hover > span {
+
+    opacity: 0;
+    cursor: default;
+
 }
 
 #slideActu :hover {
@@ -261,6 +326,7 @@
     text-decoration: none;
     color: rgb(255, 255, 255);
 
+
 }
 
 
@@ -272,7 +338,9 @@
     left: 20px;
     margin: 0;
     opacity: 0;
-    text-shadow: rgb(255, 0, 0) 1px 0 10px;
+    text-shadow: rgb(255, 0, 0) 1px 0 10px;   
+    display: none;
+    font-family: 'Quantico', sans-serif;
 
 }
 
@@ -289,6 +357,7 @@
 
     opacity: 1;
     transition: opacity .3s ease-in .4s;
+    display: block;
 
 }
 
@@ -343,3 +412,4 @@ border-radius: 10px;
 box-shadow: 0 8px 32px 0 rgb(135, 31, 31);
 
 }
+
