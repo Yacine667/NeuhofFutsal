@@ -13,7 +13,7 @@ class Oppose
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'opposes')]
     private ?Rencontre $rencontre = null;
 
     #[ORM\ManyToOne(inversedBy: 'opposes')]
@@ -61,6 +61,11 @@ class Oppose
         $this->equipe_2 = $equipe_2;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+       return $this->equipe_1 . " VS " . $this->equipe_2; 
     }
 
 }

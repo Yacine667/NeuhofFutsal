@@ -143,6 +143,14 @@
         <div class="containerNav">
             <div class="logo">
                 <img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal">
+
+                <ul class="darkToggle">
+
+                    <li data-mode="light">Light</li>
+                    <li data-mode="dark">Dark</li>
+
+                </ul>
+
             </div>
             <div id="mainListDiv" class="main_list">
                 <ul class="navlinks">
@@ -189,7 +197,7 @@
             </div>
             
         {% endfor %}
-    <body>
+    <body data-theme="dark" >
 
 
         {% block body %}
@@ -242,7 +250,7 @@
 
                             <h3>Nous Contacter : </h3>
                             <h4><i class="fa-solid fa-phone"></i> 06 60 67 02 48</h4>
-                            <h4><i class="fa-solid fa-envelope"></i> Tanovan.k@gmail.com</h4>
+                            <h4><i class="fa-solid fa-envelope"></i><a href="mailto:Tanovan.k@gmail.com"> Tanovan.k@gmail.com</a></h4>
                             <h4><i class="fa-solid fa-location-dot"></i> 64 All. Reuss, 67100 Strasbourg</h4>
                             
                         </div>
@@ -264,23 +272,34 @@
 
 
 
-        {% block javascripts %}
+{% block javascripts %}
 
-            <script src="{{ asset('js/script.js') }}"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-            <script>
-                $(window).scroll(function() {
-                    if ($(document).scrollTop() > 50) {
-                        $('.nav').addClass('affix');
-                        console.log("OK");
-                    } else {
-                        $('.nav').removeClass('affix');
-                    }
-                });
-            </script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    {# <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script> #}
+    <script>
 
-        {% endblock %}
+    {# ----------------- SCROLL NAVBAR -----------------  #}
 
+    $(window).scroll(function() {
+
+        if ($(document).scrollTop() > 50) {
+
+            $('.nav').addClass('affix');
+
+        } 
+                        
+        else {
+
+            $('.nav').removeClass('affix');
+
+    }
+
+    });
+
+    </script>
+
+{% endblock %}
 
 
 </html>

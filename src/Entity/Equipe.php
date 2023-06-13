@@ -22,7 +22,7 @@ class Equipe
     private ?string $logo_equipe = null;
 
     #[ORM\ManyToOne(inversedBy: 'equipes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Entraineur $entraineur = null;
 
     #[ORM\OneToMany(mappedBy: 'equipe_1', targetEntity: Oppose::class)]

@@ -18,7 +18,7 @@ class ActualiteController extends AbstractController
     public function index(ManagerRegistry $doctrine, Actualite $actualites = null, Request $request): Response
     {
 
-        $actualites = $doctrine->getRepository(Actualite::class)->findAll();
+        $actualites = $doctrine->getRepository(Actualite::class)->findBy(array(),array('id' => 'DESC'),null ,0);
         return $this->render('actualite/index.html.twig', [
             'actualites' => $actualites,
         ]);

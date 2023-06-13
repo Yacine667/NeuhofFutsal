@@ -22,6 +22,9 @@ class Rencontre
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $score_rencontre = null;
 
+    #[ORM\OneToMany(mappedBy: 'rencontre', targetEntity: Oppose::class, cascade: ['persist', 'remove'])]
+    private Collection $opposes;
+
     #[ORM\ManyToOne(inversedBy: 'rencontres')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Stade $stade = null;
@@ -52,6 +55,7 @@ class Rencontre
         $this->remplacants = new ArrayCollection();
         $this->remplaceEntrants = new ArrayCollection();
         $this->remplaceSortants = new ArrayCollection();
+        $this->opposes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -239,6 +243,36 @@ class Rencontre
             // set the owning side to null (unless already changed)
             if ($remplaceEntrant->getRencontre() === $this) {
                 $remplaceEntrant->setRencontre(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Oppose>
+     */
+    public function getOpposes(): Collection
+    {
+        return $this->opposes;
+    }
+
+    public function addOppose(Oppose $oppose): self
+    {
+        if (!$this->opposes->contains($oppose)) {
+            $this->opposes->add($oppose);
+            $oppose->setRencontre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOppose(Oppose $oppose): self
+    {
+        if ($this->remplaceSortants->removeElement($oppose)) {
+            // set the owning side to null (unless already changed)
+            if ($oppose->getRencontre() === $this) {
+                $oppose->setRencontre(null);
             }
         }
 

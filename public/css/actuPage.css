@@ -8,7 +8,7 @@
     align-items: center;
     margin-top: 6%;
     background-color: #040404;
-    background-image: url(https://i.gifer.com/EkA5.gif);
+    background-image: url("/img/front/redsmoke.gif");
     background-size: cover;
     font-family: 'Quantico', sans-serif;
   
@@ -123,10 +123,11 @@
     min-height: 80vh;
     border-radius: 7px;
     padding: 2%;
-    margin: 2%;
-    margin-top: 8%;
+    padding-top: 8%;
+    /* margin: 2%; */
+    /* margin-top: 8%; */
     background-color: #040404;
-    background-image: url(https://i.gifer.com/EkA5.gif);
+    background-image: var(--gif2);
     background-size: cover;
     box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
     backdrop-filter: blur( 8.5px );
@@ -421,7 +422,7 @@
     align-items: center;
     font-family: 'Quantico', sans-serif;
     background-color: #040404;
-    background-image: url(https://i.gifer.com/EkA5.gif);
+    background-image: url("/img/front/redsmoke.gif");
     background-size: cover;
     box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
     backdrop-filter: blur( 8.5px );
@@ -509,10 +510,22 @@
   
   }
   
+  .editComment form  {
+
+    width: 100%;
+  }
+
+  .editComment form div {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .editComment textarea {
 
     margin-top: 10%;
-    width: 300px;
+    width: 100%;
     max-width: 300px;
     height: 350px;
     padding: 2%;

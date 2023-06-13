@@ -15,13 +15,38 @@
 
         <div class="homeIntro">
 
-            <h2>Bienvenue Sur Le Site Du Csc Neuhof Futsal</h2>
+            <h2>Bienvenue Sur Le Site Du Neuhof Futsal</h2>
 
             <p>Le club NEUHOF FUTSAL N.F. est affilié à la fédération française de Football.<br>Inculquer les valeurs inhérentes à la pratique sportive aux jeunes de 6 à 18 ans, telle est la vocation de la fédération française de Football.<br> Le football a identifié ces valeurs sous le sigle : P.R.E.T.S (le Plaisir, le Respect, l’Engagement, la Tolérance et la Solidarité), et le programme éducatif fédéral propose de leur donner corps dans le cadre des activités du club.</p>
         
         </div>
 
-    
+</section>
+
+<section id="lineClub">
+
+    <span>Je Suis </span>
+
+    <div class="flipLine">
+
+        {% for joueur in joueurs %}
+
+            <div><div># {{ joueur.prenomjoueur }}</div></div>
+
+        {% endfor %}
+
+        {% for entraineur in entraineurs %}
+
+            <div><div># {{ entraineur.prenomentraineur }}</div></div>
+
+        {% endfor %}
+
+        <div><div># Kenny</div></div>
+
+        <div><div># Neuhof</div></div>
+
+    </div>
+       
 </section>
 
 <section id="homePresentation">

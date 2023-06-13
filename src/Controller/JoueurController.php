@@ -13,10 +13,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class JoueurController extends AbstractController
 {
     #[Route('/joueur', name: 'app_joueur')]
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine): Response
     {
+        $attaquants = $doctrine->getRepository(Joueur::class)->findBy(['poste_joueur' => 'BU','equipe' => 1 ] ,[]);
         return $this->render('joueur/index.html.twig', [
-            'controller_name' => 'JoueurController',
+            'attaquants' => $attaquants,
         ]);
     }
 

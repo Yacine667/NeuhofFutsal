@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Actualite;
+use App\Entity\Entraineur;
+use App\Entity\Joueur;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,12 +14,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     #[Route('/home', name: 'app_home')]
-    public function index(ManagerRegistry $doctrine, Actualite $actualites = null, Request $request): Response
+    public function index(ManagerRegistry $doctrine, Actualite $actualites = null, Joueur $joueurs = null, Request $request): Response
     {
 
         $actualites = $doctrine->getRepository(Actualite::class)->findBy(array(),array('id' => 'DESC'),3 ,0);
+        $joueurs = $doctrine->getRepository(Joueur::class)->findAll() ;
+        $entraineurs = $doctrine->getRepository(Entraineur::class)->findAll() ;
         return $this->render('home/index.html.twig', [
             'actualites' => $actualites,
+            'joueurs' => $joueurs,
+            'entraineurs' => $entraineurs,
         ]);
     }
 

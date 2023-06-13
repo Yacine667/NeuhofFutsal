@@ -6,86 +6,61 @@
 
 <section id="entraineurContainer">
 
-    <h2 class="titleTrainer"> {{ equipe.entraineur.nomentraineur }} {{ equipe.entraineur.prenomentraineur }} </h2>
-    <p class="teamTrainer"> ( {{ equipe.nomequipe }} )</p>
+  <div class="container">
 
-<div class="wrapper">
+    <div class="front">
 
-  <div class="cols">
+      <div class="inner">
 
-    <div class="col">
+        <div class="top-section">
 
-      <div class="container">
-
-        <div class="front">
-
-          <div class="inner">
-
-            <div class="top-section">
-
-              <img class="player-photo" src={{ equipe.entraineur.photoentraineur }} alt="Photo De L'entraineur">
-
-            </div>
-
-          </div>
-
-          <div class="bottom-section">
-
-            <h1>{{ equipe.entraineur.nomentraineur }}</h1>
-
-            <h2>{{ equipe.entraineur.prenomentraineur}}</h2>
-
-            <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
-
-          </div>
-
-        </div>
-
-
-        <div class="back">
-
-          <div class="inner">
-
-            <div class="top-section">
-
-             
-            </div>
-          </div>
-          <div class="bottom-section">
-
-            <div class="player-details">
-
-              <div class="player-dates">
-
-                <div class="birth-date">
-                  
-                    <span class="title"></span>
-                  
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="player-bio">
-
-              <h2>{{ equipe.entraineur.nomentraineur}} {{ equipe.entraineur.prenomentraineur}}</h2>
-
-             <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
-
-            </div>
-
-          </div>
+          <img class="player-photo" src={{ equipe.entraineur.photoentraineur }} alt="Photo De L'entraineur">
 
         </div>
 
       </div>
 
+      <div class="bottom-section">
+
+        <img class="club-logo" src="{{asset('img/1.png')}}" alt="club logo">
+
+      </div>
+
+    </div>
+
+    <div class="back">
+
+      <div class="inner">
+
+        <div class="top-section">
+
+             
+        </div>
+          
+      </div>
+                 
     </div>
 
   </div>
 
-</div>
+  <div class="containerInfoPlayer">
+
+    <div class="infoPlayer">
+      
+      <h2>{{ equipe.entraineur.nomentraineur}}  {{ equipe.entraineur.prenomentraineur }}</h2>
+
+        <span>{{ equipe.nomequipe}}</span>
+        <img src={{ equipe.logoequipe }} alt="Logo De L'équipe">
+      
+      </div>
+     
+  </div>
+
+  <div class="animeName">
+
+    <span>@{{ equipe.entraineur.prenomentraineur }}</span>
+
+  </div>
 
 <section>
 

@@ -6,12 +6,31 @@
 
 <section id="containerProfil">
 
+    <div class="modal-container">
+
+        <div class="overlay modal-trigger"></div>
+
+        <div class="modal">
+
+            <span class="supprFirst">Confirmation : </span>
+
+            <a class="supprSecond" href="{{ path('profil_delete', {'id': app.user.id}) }}">Supprimer Définitivement Mon Compte <i class="fa-solid fa-user-xmark"></i></a>
+
+            <span class="supprThird">( Les Messages Que Vous Avez Posté Seront Rendus Anonymes )</span>
+
+            <button class="close-modal modal-trigger">X</button>
+
+        </div>
+
+    </div>
+
+
     <div class="containerInfo">
 
         <h2>Mon Profil : </h2>
         <h3>Pseudo : {{ user.pseudo }}</h3>
         <h3>E-mail : {{ user.email }}</h3>
-        <a href="{{ path('profil_delete', {'id': app.user.id}) }}">Supprimer le compte</a>
+        <button class="modal-btn modal-trigger">Supprimer le compte</button>
     
     </div>
 
@@ -34,7 +53,7 @@
                 <div class="postActions">
 
                     <a href="{{ path('delete_comment',{'id':post.id})}}"><i class="fa-regular fa-trash-can"></i></a> 
-                    <a href="{{ path('edit_comment',{'id':post.id})}}" class="modal-btn modal-trigger"><i class="fa-regular fa-pen-to-square"></i></a> 
+                    <a href="{{ path('edit_comment',{'id':post.id})}}"><i class="fa-regular fa-pen-to-square"></i></a> 
 
                 </div>
 

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5%;
+  margin-top: 2%;
 
 }
 
@@ -23,10 +23,19 @@
   font-weight: bold;
   letter-spacing: 5;
   text-transform: uppercase;
-  font-size: 8em;
+  font-size: 6em;
   color: rgba(255, 0, 0, 0.043);
-  background-image: url(https://i.gifer.com/2dfo.gif);
+  background-image: url("/img/front/stade.gif");
 
+}
+
+.nameTeam h3 {
+
+  text-align: center;
+  font-family: 'Allerta Stencil', sans-serif;
+  color: white;
+  font-size: 3em;
+  text-shadow: rgb(255, 0, 0) 1px 0 10px;
 }
 
 
@@ -38,8 +47,9 @@
   align-items: center;
   min-height: 100vh;
   background-color: #040404;
-  background-image: url(https://i.gifer.com/EkA5.gif);
+  background-image: url("/img/front/redsmoke.gif");
   background-size: cover;
+  padding: 8%;
 
 }
 
@@ -402,7 +412,7 @@
 #containerDetailPlayer {
 
   background-color: #040404;
-  background-image: url(https://i.gifer.com/EkA5.gif);
+  background-image: url("/img/front/redsmoke.gif");
   background-size: cover;
   font-family: 'Quantico', sans-serif;
   margin-top: 10%;
@@ -411,6 +421,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 45;
 
 }
 
@@ -441,7 +452,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://pngtree.com/freepng/red-line-luminous-effect-gradient-cross-line_6843872.html");
+  background-image: url("/img/front/Fond.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -489,6 +500,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
 }
 
@@ -503,6 +515,7 @@
   flex-direction: column;
   margin-bottom: 10%;
   font-family: 'Quantico', sans-serif;
+  
 
 }
 
@@ -557,7 +570,7 @@
   text-transform: uppercase;
   font-size: 6em;
   color: rgba(255, 0, 0, 0.043);
-  background-image: url(https://i.gifer.com/2dfo.gif);
+  background-image: url("/img/front/stade.gif");
 
 }
 
@@ -599,10 +612,53 @@
 
 .containerInfoPlayer {
 
-  background-color: red;
+  background-image: url("/img/front/Fond.png");
+  mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+  background-position:0% 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ff000000;
   min-width: 60%;
   min-height: 500px;
+  z-index: 44;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+
 }
+
+.infoPlayer {
+
+  color: white;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoPlayer span {
+
+font-size: 2em;
+margin-top: 3%;
+}
+
+.infoPlayer img {
+
+  width: 40%;
+
+}
+
+
+.infoPlayer h2 {
+
+  font-family: 'Black Ops One', cursive;
+  font-size: 6em;
+  text-align: center;
+  
+}
+
+
 
 .animeName {
 
@@ -612,7 +668,6 @@
   min-width: 100vw;
   text-align: right;
   font-family: 'Black Ops One', cursive;
-  line-height: 1;
   font-weight: bold;
   letter-spacing: 20px;
   text-transform: uppercase;
@@ -624,6 +679,7 @@
   animation: animate 10s linear infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  z-index: 2;
 
 }
 
@@ -663,35 +719,15 @@
 
 #entraineurContainer {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 10%;
   background-color: #040404;
-  background-image: url(https://i.gifer.com/EkA5.gif);
-  background-size: cover;
-  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
-  backdrop-filter: blur( 8.5px );
-  -webkit-backdrop-filter: blur( 8.5px );
-  padding-bottom:10% ;
+  font-family: 'Quantico', sans-serif;
+  margin-top: 10%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 45;
+  gap: 20px;
   
-}
-
-.titleTrainer {
-
-  font-size: 2.4em;
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
-  color: white;
-  font-family: 'Quantico', sans-serif;
-
-}
-
-.teamTrainer {
-
-  font-size: 1em;
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
-  color: white;
-  font-family: 'Quantico', sans-serif;
-
 }

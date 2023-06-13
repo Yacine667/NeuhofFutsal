@@ -39,6 +39,20 @@ class JoueurRepository extends ServiceEntityRepository
         }
     }
 
+       public function findByAttaquant($poste , $equipe): array
+   {
+       return $this->createQueryBuilder('j')
+           ->andWhere('j.equipe_id = :val')
+           ->setParameter('val', $equipe)
+           ->andWhere('j.exampleField = :val')
+           ->setParameter('val', $poste)
+           ->orderBy('j.id', 'ASC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
 //    /**
 //     * @return Joueur[] Returns an array of Joueur objects
 //     */

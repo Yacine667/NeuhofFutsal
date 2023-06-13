@@ -51,14 +51,15 @@
 
   <div class="containerInfoPlayer">
 
-    <div>
+    <div class="infoPlayer">
       
-      <span>{{ joueur.nomjoueur}}</span>
-      <span>{{ joueur.prenomjoueur}}</span>
-      <span>{{ joueur.equipe.nomequipe}}</span>
-      <span>Date De Naissance : {{joueur.datenaissancejoueur |date("m/d/Y")}}</span>
+      <h2>{{ joueur.nomjoueur}}  {{ joueur.prenomjoueur}}</h2>
+
+        <span>Date De Naissance : {{joueur.datenaissancejoueur |date("m/d/Y")}}</span>
+        <span>{{ joueur.equipe.nomequipe}}</span>
+        <img src={{ joueur.equipe.logoequipe }} alt="Logo De L'équipe">
       
-    </div>
+      </div>
      
   </div>
 

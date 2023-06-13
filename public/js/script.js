@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         slide.style.cursor = 'default'
         maskTitle()
 
-
       })
 
     }
@@ -82,4 +81,35 @@ modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 function toggleModal(){
 
   modalContainer.classList.toggle("active")
+}
+
+
+
+// const darks = document.querySelectorAll('#darkButtons')
+
+// for (const dark of darks){
+
+//   dark.addEventListener('click', () =>{
+
+//    darkMode
+//    console.log('test')
+
+//   })
+
+// }
+ 
+
+// document.querySelectorAll('#darkButtons').forEach(item => {
+//   item.addEventListener('click', console.log('test'));
+// });
+
+document.querySelectorAll('li').forEach(item => {
+  item.addEventListener('click', darkMode);
+});
+
+function darkMode() {
+  let body = document.querySelector('body');
+  let mode = this.dataset.mode;
+  body.dataset.theme = mode;
+  
 }
