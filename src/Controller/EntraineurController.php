@@ -36,4 +36,22 @@ public function index2(ManagerRegistry $doctrine, Equipe $equipe = null, Request
     ]);
 }
 
+#[Route('/entraineur/{id}/delete', name: 'entraineur_delete')]
+public function delete(ManagerRegistry $doctrine, Entraineur $entraineur){   
+    $equipes = $entraineur->getEquipes();
+    $entityManager = $doctrine->getManager();
+
+    // Détacher les posts de l'utilisateur
+    foreach ($equipes as $equipe) {
+        $equipe->setEntraineur(null);
+        $entityManager->persist($equipe);
+    }
+
+    $entityManager->remove($entraineur);
+    $entityManager->flush();
+
+
+    return $this->redirectToRoute('admin');
+}
+
 }

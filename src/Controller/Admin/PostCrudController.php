@@ -24,7 +24,29 @@ class PostCrudController extends AbstractCrudController
         return $actions
 
         ->remove(Crud::PAGE_INDEX, Action::NEW)
-        ->remove(Crud::PAGE_INDEX, Action::EDIT);
+        ->remove(Crud::PAGE_INDEX, Action::EDIT)
+        ->remove(Crud::PAGE_DETAIL, Action::EDIT)
+        ->add(Crud::PAGE_INDEX, Action::DETAIL)
+        ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+            return $action->setIcon('fa-regular fa-trash-can')->setLabel('Supprimer Commentaire');
+            
+        })
+
+        ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
+            return $action->setIcon('fa-regular fa-trash-can')->setLabel('Supprimer Commentaire');
+            
+        })
+        
+        ->update(Crud::PAGE_DETAIL, Action::INDEX, function (Action $action) {
+            return $action->setIcon('fa-solid fa-eye')->setLabel('Voir Liste');
+            
+        })
+        
+        
+        ->update(Crud::PAGE_INDEX, Action::DETAIL, function (Action $action) {
+            return $action->setIcon('fa-solid fa-eye')->setLabel('Voir Détails');
+            
+        });
     }
 
     public function configureFields(string $pageName): iterable
@@ -35,6 +57,7 @@ class PostCrudController extends AbstractCrudController
         yield Field::new('texte_post');
         yield AssociationField::new('user');
         yield DateField::new('date_creation');
+        yield AssociationField::new('actualite');
         
 
     }

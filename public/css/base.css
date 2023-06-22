@@ -6,6 +6,82 @@
 }
 
 
+.infoBulle {
+
+  position: absolute;
+  width: 100%;
+  border-radius: 40%;
+  font-size: 1.2em;
+  color: var(--text1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 50%;
+
+}
+
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+
+}
+
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ffffff;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  box-shadow: var(--boxShadow);
+}
+
+.slider:before {
+  background-color: var(--subMenuBg);
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #ffffff20;
+  box-shadow: var(--boxShadow);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 /* ---------------------VARIABLES DARK/LIGHT--------------------- */
 
 
@@ -16,23 +92,28 @@
   --linksHover: #00ddff;
   --div: #ffffff8b;
   --text1 : #454545;
-  --gifHomeIntro: url("https://i.gifer.com/2I3c.gif") ;
-  --gifDiv: url("https://i.gifer.com/7Lyc.gif") ;
-  --gifText : url("https://i.gifer.com/7ztu.gif") ;
-  --gifTextPresentation : url("https://i.gifer.com/U0Vg.gif");
+  --gifHomeIntro: url("/img/front/whiteBubbles.gif") ;
+  --gifDiv: url("/img/front/divGold.gif") ;
+  --gifText : url("/img/front/blueWave.gif") ;
+  --gifTextPresentation : url("/img/front/progressCircle.gif");
   --textShadow : rgb(0, 195, 255) 1px 0 10px;
   --lastName :  #00ddff;
   --boxShadow : 0 8px 32px 0 rgba(31, 135, 133, 0.37);
   --subMenuBg : #00ddff71;
+  --iconFooter : #0000004d;
+  --shadowButton :0 0 5px #03e4f4cb,
+                  0 0 25px #03f4d8b5,
+                  0 0 50px #03f4eca4,
+                  0 0 100px #03ccf4d9;
   
 }
 
-[data-theme="dark"] {
+:root {
 
   --bg-color: black;
   --links: #FFFFFF;
   --linksHover: #ff0000;
-  --div: rgba(255, 0, 0, 0);
+  --div: rgba(0, 0, 0, 0.322);
   --text1 : #FFFFFF;
   --gifHomeIntro: url("/img/front/line.gif") ;
   --gifDiv: url("/img/front/redsmoke.gif") ;
@@ -42,6 +123,11 @@
   --lastName : #ff0000;
   --boxShadow : 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   --subMenuBg : #ff000082;
+  --iconFooter : #ffffff37;
+  --shadowButton :0 0 5px #f40303cb,
+                  0 0 25px #f40303b5,
+                  0 0 50px #f40303a4,
+                  0 0 100px #f40303d9;
   
 }
 
@@ -49,6 +135,7 @@
 body {
 
   background-color: var(--bg-color);
+  transition: 0.5s ease-in-out;
 
 }
 
@@ -59,12 +146,35 @@ body {
   color: white;
   top: 0;
   left: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 5%;
 
+}
+
+.darkMode {
+
+  background-color: black;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.lightMode {
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
 }
 
 
 
   /* ---------------------MESSAGE FLASH----------------------*/
+
 
 
 .flashMessage {
@@ -82,6 +192,26 @@ body {
   border-radius: 0 0 20px 20px;
   text-align: center;
  
+}
+
+
+
+  /* ---------------------NAVBAR----------------------*/
+
+
+
+.nav {
+
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  z-index: 1000;
+  line-height: 65px;
+  text-align: center;
+  top: 0;
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 0.9em;
+  
 }
 
 
@@ -113,26 +243,12 @@ body {
 }
 
 
-.nav {
-
-  width: 100%;
-  height: 65px;
-  position: fixed;
-  z-index: 1000;
-  line-height: 65px;
-  text-align: center;
-  top: 0;
-  font-family: 'Allerta Stencil', sans-serif;
-  font-size: 0.9em;
-
-}
-
-
 .nav div.logo {
 
   float: left;
   width: 20%;
   height: auto;
+  border-radius: 50%;
  
 }
 
@@ -144,6 +260,14 @@ body {
   margin-top: -10%;
 
 }
+
+
+.nav div.logo img:hover {
+
+  cursor: pointer;
+
+}
+
 
 .nav div.main_list {
 
@@ -286,7 +410,10 @@ body {
 }
 
 
+
 /*  ---------------------ANIMATION BOUTON NAVBAR--------------------- */
+
+
 
 .navTrigger {
 
@@ -304,12 +431,11 @@ body {
 
 .navTrigger i {
 
-  background-color: #ff000000;
+  background-color: var(--linksHover);
   border-radius: 2px;
   content: '';
   display: block;
   width: 100%;
-  background-image: url(https://i.gifer.com/75Z8.gif);
   height: 4px;
   
 }
@@ -522,7 +648,7 @@ body {
 
 	width:35px;
 	height:3px;
-	border: #ff00005f 12px solid;
+	border: var(--subMenuBg)12px solid;
 	border-radius:35px;
 	margin:0 auto;
 	position:relative;
@@ -541,8 +667,8 @@ body {
 
 .footer #button i {
 
-  color: rgba(255, 255, 255, 0.662);
-  text-shadow: rgb(251, 0, 0) 1px 0 10px;
+  color: rgb(255, 255, 255);
+  text-shadow: var(--textShadow);
   opacity: 1;
   
 }
@@ -559,7 +685,7 @@ opacity: 0;
 
 	width:35px;
 	height:35px;
-	border: #ff00005f 12px solid;
+	border: var(--subMenuBg)12px solid;
 	-webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -585,7 +711,7 @@ opacity: 0;
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 	z-index:999;
-  color: white;
+  color: var(--links);
   font-family: 'Allerta Stencil', sans-serif;
   
 }
@@ -611,8 +737,8 @@ opacity: 0;
   position:relative;
   top:0;
   left:0;
-	background: rgba(0, 0, 0, 0.36);
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	background: var(--div);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
@@ -657,7 +783,7 @@ opacity: 0;
 
 .footer_center i {
 
-  color: red;
+  color: var(--subMenuBg);
   font-size: 1.2em;
 
 }
@@ -676,7 +802,7 @@ opacity: 0;
   height: 100%;
   padding: 2%;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   margin-top: 5%;
   filter: grayscale(1);
   transition: filter 0.6s;
@@ -702,7 +828,7 @@ opacity: 0;
 
 .footer a {
 
-	color: white;
+	color: var(--links);
   text-decoration: none;
 
 }
@@ -722,7 +848,7 @@ opacity: 0;
 .wrapperIcon .icon {
 
   position: relative;
-  background: #ffffff73;
+  background: var(--iconFooter);
   border-radius: 50%;
   padding: 15px;
   margin: 10px;
@@ -813,23 +939,24 @@ opacity: 0;
 
 /*  ---------------------PAGE INDEX LIENS EQUIPES --------------------- */
 
+
+
+
 .containerLinkTeam {
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
-  max-width: 90vw;
-  margin: 5%;
-  margin-top: 10%;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-top: 10%;
   background-color: #040404;
-  background-image: url("/img/front/redsmoke.gif");
+  background-image: var(--gifDiv);
   background-size: cover;
-  box-shadow: 0 15px 25px rgba(255, 0, 0, 0.6);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
-  border-radius: 10px;
   font-family: 'Quantico', sans-serif;
 
 }
@@ -837,12 +964,9 @@ opacity: 0;
 
 .linkTeam:hover {
 
-  background: #f403038e;
+  background: var(--subMenuBg);
   border-radius: 5px;
-  box-shadow: 0 0 5px #f40303cb,
-              0 0 25px #f40303b5,
-              0 0 50px #f40303a4,
-              0 0 100px #f40303d9;
+  box-shadow: var(--shadowButton);
 
 }
 
@@ -851,7 +975,7 @@ opacity: 0;
 
   width: 50%;
   background: rgba(147, 147, 147, 0.097);
-  box-shadow: 0 15px 25px rgba(255, 0, 0, 0.6);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
@@ -916,6 +1040,7 @@ color: white;
   margin-bottom: 5%;
 
 }
+
 
 
 /*  ---------------------PAGE PLAN DU SITE---------------------  */

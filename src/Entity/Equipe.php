@@ -26,6 +26,7 @@ class Equipe
     private ?Entraineur $entraineur = null;
 
     #[ORM\OneToMany(mappedBy: 'equipe_1', targetEntity: Oppose::class)]
+    #[ORM\JoinColumn(nullable: true)]
     private Collection $opposes;
 
     #[ORM\OneToMany(mappedBy: 'equipe', targetEntity: Joueur::class, orphanRemoval: true)]

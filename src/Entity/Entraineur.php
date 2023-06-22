@@ -27,7 +27,8 @@ class Entraineur
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $video_entraineur = null;
 
-    #[ORM\OneToMany(mappedBy: 'entraineur', targetEntity: Equipe::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(mappedBy: 'entraineur', targetEntity: Equipe::class)]
+    #[ORM\JoinColumn(nullable: true)]
     private Collection $equipes;
 
     public function __construct()

@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="img/1.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
@@ -21,191 +23,122 @@
         {% endblock %}
 
     </head>
-{# 
-        <nav id="topNav">
 
-            <ul>
-                <div class="link">
+    <nav class="nav">
 
-                    <img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal">
-
-                    <li> <a href="{{ path('app_actualite') }}">Actualités</a> </li>
-
-                        <div class="dropdown">
-
-                            <li> <a href="{{ path('app_indexTeam') }}">Equipe U-8</a></li>
-
-                                <div class="dropdown-child">
-
-                                    <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
-                                    <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
-                                    <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
-
-                                </div>
-
-                        </div>
-
-                        <div class="dropdown">
-
-                            <li> <a href="{{ path('app_indexTeam2') }}">Equipe Ad</a></li>
-
-                                <div class="dropdown-child">
-
-                                        <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
-                                        <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
-                                        <li> <a href="{{ path('app_rencontre2') }}">Matchs</a></li>
-
-                                </div>
-
-                        </div>
-
-                        {% if app.user %}
-
-                            <li> <a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
-
-                        {% else %}
-
-                            <li> <a href="{{ path('app_login') }}">Se Connecter</a></li>
-                            <li> <a href="{{ path('app_register') }}">S'inscrire</a></li>
-
-                        {% endif %}
-
-                        {% if app.user and is_granted("ROLE_ADMIN") %}
-
-                                <li> <a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;">Admin</a></li>
-                                
-                            {% endif %}
-                    
-                
-                </div>
-
-            </ul>
-            
-        </nav> #}
-
-
-{# 
-<nav>
-
-   <ul>
-   
-
-   <li class="sub-menu-parent" tab-index="0"><a href="{{ path('app_actualite') }}">Actualités</a></li>
-
-        <li class="sub-menu-parent" tab-index="0">
-
-        <a href="{{ path('app_indexTeam') }}">Equipe U-8</a>
-
-        <ul class="sub-menu">
-            <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
-            <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
-            <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
-        </ul>
-
-        </li>
-
-        <li class="sub-menu-parent" tab-index="0">
-
-        <a href="{{ path('app_indexTeam2') }}">Equipe Ad</a>
-
-        <ul class="sub-menu">
-            <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
-            <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
-            <li> <a href="{{ path('app_rencontre2') }}">Matchs</a></li>
-        </ul>
-
-        </li>
-        <li class="sub-menu-parent" tab-index="0"><img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal"></li>
-            {% if app.user %}
-
-                            <li class="sub-menu-parent" tab-index="0"><a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
-
-                        {% else %}
-
-                            <li class="sub-menu-parent"> <a href="{{ path('app_login') }}">Se Connecter</a></li>
-                            <li class="sub-menu-parent"> <a href="{{ path('app_register') }}">S'inscrire</a></li>
-
-            {% endif %}
-
-            {% if app.user and is_granted("ROLE_ADMIN") %}
-
-                <li class="sub-menu-parent"> <a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;">Admin</a></li>
-                                
-            {% endif %}
-        
-
-
-   </ul>
-
- </nav> #}
-
-<nav class="nav">
         <div class="containerNav">
+
             <div class="logo">
+
                 <img onclick="document.location='{{ path('app_home') }}'" src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal">
 
-                <ul class="darkToggle">
+                {# <div class="darkToggle">
 
-                    <li data-mode="light">Light</li>
-                    <li data-mode="dark">Dark</li>
+                    <div class="controlLightMode lightMode" data-mode="light"> </div>
+                    <div class="controlDarkMode darkMode" data-mode="dark"> </div>
 
-                </ul>
+                </div> #}
+
+                
 
             </div>
+
             <div id="mainListDiv" class="main_list">
+
                 <ul class="navlinks">
+
                     <li><a href="{{ path('app_actualite') }}">Actualités</a></li>
                     <li><a href="{{ path('app_indexTeam') }}">Equipe U-9</a>
+
                         <ul class="sub-menu">
+
                             <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
                             <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
                             <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
+
                         </ul>
+
                     </li>
                     <li><a href="{{ path('app_indexTeam2') }}">Equipe 1</a>
+
                         <ul class="sub-menu">
+
                             <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
                             <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
                             <li> <a href="{{ path('app_rencontre2') }}">Matchs</a></li>
+
                         </ul>
+
                     </li>
+
                     {% if app.user %}
+
                     <li><a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+
                     {% else %}
+
                     <li><a href="{{ path('app_login') }}">Se Connecter</a></li>
                     <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+
                     {% endif %}
+
                     {% if app.user and is_granted("ROLE_ADMIN") %}
-                    <li><a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;"><i class="fa-solid fa-toolbox"></i><span>Page Admin</span></a></li>
+
+                    <li><a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;"><i class="fa-solid fa-toolbox"></i><span>Outils Admin</span></a></li>
+
                     {% elseif app.user %}
+
                     <li><a href="{{ path('app_profil', {'id': app.user.id}) }}">Profil</a></li>
-                    {% else %}
+
+                    
                     {% endif %}
+
                 </ul>
+
             </div>
+
             <span class="navTrigger">
+
                 <i></i>
                 <i></i>
                 <i></i>
+
             </span>
+
         </div>
+
+        <div class="theme-switch-wrapper">
+
+                    <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                    </label>
+                    <div class="infoBulle">
+                        <span class='infoText'><i class="fa-regular fa-sun"></i> / <i class="fa-regular fa-moon"></i></span>
+                    </div>
+                    
+
+        </div>
+
+        
     </nav>
 
-     {% for message in app.flashes('success') %}
-            <div class="flashMessage">
-                <p>{{ message }}</p>
-            </div>
-            
-        {% endfor %}
-    <body data-theme="dark" >
+    {% for message in app.flashes('success') %}
 
+        <div class="flashMessage">
+
+            <p>{{ message }}</p>
+
+        </div>
+            
+    {% endfor %}
+
+    <body data-theme="dark" >
 
         {% block body %}
 
-
         {% endblock %}
         
-
     </body>
 
     <footer>
@@ -276,7 +209,6 @@
 
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    {# <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script> #}
     <script>
 
     {# ----------------- SCROLL NAVBAR -----------------  #}
