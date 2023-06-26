@@ -25,7 +25,7 @@
   text-transform: uppercase;
   font-size: 6em;
   color: rgba(255, 0, 0, 0.043);
-  background-image: url("/img/front/stade.gif");
+  background-image: var(--gifText);
 
 }
 
@@ -33,9 +33,9 @@
 
   text-align: center;
   font-family: 'Allerta Stencil', sans-serif;
-  color: white;
+  color: var(--links);
   font-size: 3em;
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
 }
 
 
@@ -47,7 +47,7 @@
   align-items: center;
   min-height: 100vh;
   background-color: #040404;
-  background-image: url("/img/front/redsmoke.gif");
+  background-image: var(--gifDiv);
   background-size: cover;
   padding: 8%;
 
@@ -412,11 +412,11 @@
 #containerDetailPlayer {
 
   background-color: #040404;
-  background-image: url("/img/front/redsmoke.gif");
+  background-image: var(--gifDiv);
   background-size: cover;
   font-family: 'Quantico', sans-serif;
-  margin-top: 10%;
-  min-height: 80vh;
+  /* margin-top: 10%; */
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -439,14 +439,14 @@
 .front, .back {
 
   background-size: cover;
-  box-shadow: 0 4px 8px 0 rgba(243, 4, 4, 0.25);
+  box-shadow: var(--boxShadow);
   background-position: center;
   transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
   text-align: center;
   height: 500px;
   width: 100%;
   border-radius: 14px;
-  color: #fff;
+  color: var(--links);
   font-size: 1rem;
   display: flex;
   flex-direction: column;
@@ -570,7 +570,7 @@
   text-transform: uppercase;
   font-size: 6em;
   color: rgba(255, 0, 0, 0.043);
-  background-image: url("/img/front/stade.gif");
+  background-image: var(--gifText);
 
 }
 
@@ -630,7 +630,7 @@
 
 .infoPlayer {
 
-  color: white;
+  color: var(--links);
   min-height: 500px;
   display: flex;
   flex-direction: column;
@@ -669,10 +669,10 @@ margin-top: 3%;
   text-align: right;
   font-family: 'Black Ops One', cursive;
   font-weight: bold;
-  letter-spacing: 20px;
+  letter-spacing: -15px;
   text-transform: uppercase;
-  font-size: 13em;
-  background: linear-gradient(90deg, #ffffff00, #ff0000b5, #ffffff00);
+  font-size: 10em;
+  background: var(--gradientName);
   color : white;
   background-repeat: no-repeat;
   background-size: 80%;
@@ -720,9 +720,10 @@ margin-top: 3%;
 #entraineurContainer {
 
   background-color: #040404;
+  background-image: var(--gifDiv);
+  background-size: cover;
   font-family: 'Quantico', sans-serif;
-  margin-top: 10%;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

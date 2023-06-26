@@ -13,20 +13,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class RencontreController extends AbstractController
 {
     #[Route('/rencontre', name: 'app_rencontre')]
-    public function index(ManagerRegistry $doctrine, Oppose $rencontres = null, Request $request): Response
+    public function index(ManagerRegistry $doctrine,  Request $request): Response
     {
-        $rencontres = $doctrine->getRepository(Oppose::class)->findBy(['equipe_1' => 1 ] ,[]);
+        $rencontresDom = $doctrine->getRepository(Oppose::class)->findBy(['equipe_1' => 1 ] ,[]);
+        $rencontresExt = $doctrine->getRepository(Oppose::class)->findBy(['equipe_2' => 1 ] ,[]);
+        
         return $this->render('rencontre/index.html.twig', [
-            'rencontres' => $rencontres,
+            'rencontresDom' => $rencontresDom,
+            'rencontresExt' => $rencontresExt,
         ]);
     }
 
     #[Route('/rencontre2', name: 'app_rencontre2')]
-    public function index2(ManagerRegistry $doctrine, Oppose $rencontres = null, Request $request): Response
+    public function index2(ManagerRegistry $doctrine, Request $request): Response
     {
-        $rencontres = $doctrine->getRepository(Oppose::class)->findBy(['equipe_1' => 2 ] ,[]);
+        $rencontresDom = $doctrine->getRepository(Oppose::class)->findBy(['equipe_1' => 2 ] ,[]);
+        $rencontresExt = $doctrine->getRepository(Oppose::class)->findBy(['equipe_2' => 2 ] ,[]);
+        
         return $this->render('rencontre/index.html.twig', [
-            'rencontres' => $rencontres,
+            'rencontresDom' => $rencontresDom,
+            'rencontresExt' => $rencontresExt,
         ]);
     }
 }

@@ -10,10 +10,10 @@
     align-items: center;
     justify-content: center;
     padding: 5%;
-    margin-top: 5%;
+
     /* margin-bottom: 5%; */
     background-color: #040404;
-    background-image: url("/img/front/redsmoke.gif");
+    background-image: var(--gifDiv);
     background-size: cover;
     /* box-shadow: 0 15px 25px rgba(255, 0, 0, 0.6); */
     backdrop-filter: blur( 8.5px );
@@ -27,10 +27,11 @@
   
   .tableRencontre  {
   
-    color: white;
+    color: var(--links);
     text-align: center;
+    margin-top: 5%;
     background: rgba(255, 255, 255, 0.056);
-    box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+    box-shadow: var(--boxShadow);
     backdrop-filter: blur( 8.5px );
     -webkit-backdrop-filter: blur( 8.5px );
     border-radius: 10px;

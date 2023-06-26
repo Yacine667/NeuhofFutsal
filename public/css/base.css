@@ -93,10 +93,11 @@ input:checked + .slider:before {
   --div: #ffffff8b;
   --text1 : #454545;
   --gifHomeIntro: url("/img/front/whiteBubbles.gif") ;
-  --gifDiv: url("/img/front/divGold.gif") ;
+  --gifDiv: url("/img/front/bluePoint.gif") ;
   --gifText : url("/img/front/blueWave.gif") ;
   --gifTextPresentation : url("/img/front/progressCircle.gif");
   --textShadow : rgb(0, 195, 255) 1px 0 10px;
+  --gradientName : linear-gradient(90deg, #ffffff00, #00ddff, #ffffff00);
   --lastName :  #00ddff;
   --boxShadow : 0 8px 32px 0 rgba(31, 135, 133, 0.37);
   --subMenuBg : #00ddff71;
@@ -110,7 +111,7 @@ input:checked + .slider:before {
 
 :root {
 
-  --bg-color: black;
+  --bg-color: rgb(0, 0, 0);
   --links: #FFFFFF;
   --linksHover: #ff0000;
   --div: rgba(0, 0, 0, 0.322);
@@ -120,6 +121,7 @@ input:checked + .slider:before {
   --gifText: url("/img/front/stade.gif") ;
   --gifTextPresentation : url("/img/front/circle.gif");
   --textShadow : rgb(255, 0, 0) 1px 0 10px;
+  --gradientName : linear-gradient(90deg, #ffffff00, #ff0000, #ffffff00);
   --lastName : #ff0000;
   --boxShadow : 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   --subMenuBg : #ff000082;
@@ -177,7 +179,7 @@ body {
 
 
 
-.flashMessage {
+.flashMessageSuccess {
 
   display: flex;
   justify-content: center;
@@ -185,6 +187,23 @@ body {
   width: 100%;
   color: white;
   background: rgba(30, 255, 0, 0.331);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
+  font-family: 'Quantico', sans-serif;
+  border-radius: 0 0 20px 20px;
+  text-align: center;
+ 
+}
+
+.flashMessageError {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  background: rgba(255, 0, 0, 0.533);
   box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
@@ -950,7 +969,7 @@ opacity: 0;
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
-  padding-top: 10%;
+  padding-top: 8%;
   background-color: #040404;
   background-image: var(--gifDiv);
   background-size: cover;
@@ -990,7 +1009,7 @@ opacity: 0;
 .linkTeam a {
 
 text-decoration: none;
-color: white;
+color: var(--links);
 
 }
 
@@ -1005,13 +1024,14 @@ color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8%;
-  margin-bottom: 5%;
-  padding: 2%;
-  color: white;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  color: var(--links);
   font-family: 'Quantico', sans-serif;
   background-color: #040404;
-  background-image: url("/img/front/redsmoke.gif");
+  background-image: var(--gifDiv);
   background-size: cover;
 
 }
@@ -1023,7 +1043,7 @@ color: white;
   text-align: center;
   line-height: 2em;
   background: rgba(255, 255, 255, 0.056);
-  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
@@ -1034,7 +1054,7 @@ color: white;
 
 .cgu h2 {
 
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
   font-size: 2.2em;
   font-family: 'Quantico', sans-serif;
   margin-bottom: 5%;
@@ -1053,10 +1073,10 @@ color: white;
   padding-bottom: 5%;
   width: 100%;
   min-height: 70vh;
-  color: white;
+  color: var(--links);
   font-family: 'Quantico', sans-serif;
   background-color: #040404;
-  background-image: url("/img/front/redsmoke.gif");
+  background-image: var(--gifDiv);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -1071,12 +1091,13 @@ color: white;
 
   margin-top: 3%;
   background: rgba(255, 255, 255, 0.056);
-  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
   min-width: 200px;
   text-align: center;
+  padding: 2%;
 
 }
 
@@ -1084,7 +1105,7 @@ color: white;
 .mainLink a {
 
   text-decoration: none;
-  color: white;
+  color: var(--links);
   font-size: 2em;
   font-family: 'Quantico', sans-serif;
 
@@ -1093,7 +1114,7 @@ color: white;
 
 .mainLink a:hover {
 
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
 
 }
 
@@ -1119,7 +1140,7 @@ color: white;
 
   font-size: 3em;
   font-family: 'Quantico', sans-serif;
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
 
 }
 

@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Post;
 use App\Entity\User;
 use App\Form\PostType;
+use App\Form\ProfilType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,12 +42,12 @@ class ProfilController extends AbstractController
         
         return $this->render('profil/index.html.twig', [
             'user' => $user,
-            // 'forms' =>$form->createView(),
         ]);
     }
 
     #[Route('/profil/{id}/delete', name: 'profil_delete')]
-    public function delete(ManagerRegistry $doctrine){   
+    public function delete(ManagerRegistry $doctrine){  
+
         $user = $this->getUser(); 
         $entityManager = $doctrine->getManager();
 
@@ -65,28 +65,32 @@ class ProfilController extends AbstractController
         return $this->redirectToRoute('app_home');
     }
 
-    #[Route('/comment/editProfil/{id}', name: 'edit_comment_profil')]
-public function editCommentProfil(ManagerRegistry $doctrine, Post $post, Request $request): Response
-{
+    #[Route('/comment/editProfil/{id}', name: 'edit_profil')]
+    public function editProfil(ManagerRegistry $doctrine, User $user, Request $request, $id): Response {
 
-    
-    $currUserId = $this->getUser()->getId();
-    // éditer le topic uniquement si on en est l'auteur
-    if($post->getUser() == $this->getUser()) {
-        $form = $this->createForm(PostType::class, $post, ['edit' => true]);
-        $form->handleRequest($request);
+        $currUserId = $this->getUser()->getId();
+        $userId = $user ->getId();
+
+        if($currUserId == $userId) {
+            $form = $this->createForm(ProfilType::class, $user, ['edit' => true]);
+            $form->handleRequest($request);
         
-        if($form->isSubmitted() && $form->isValid()) {
-            $em = $doctrine->getManager();
-            $em->flush();
-            return $this->redirectToRoute('app_profil', ['id' => $currUserId]);
-        }
+            if($form->isSubmitted() && $form->isValid()) {
+                $em = $doctrine->getManager();
+                $em->flush();
+                $this->addFlash('success', 'Profil Modifié !');
+                return $this->redirectToRoute('app_profil', ['id' => $currUserId]);
+            }
 
-        return $this->render('profil/index.html.twig', [
-            'formEditComment' => $form->createView(),
-        ]);
-    } else {
-        return $this->redirectToRoute("app_home");
+            return $this->render('profil/edit_profil.html.twig', [
+                'formEditProfil' => $form->createView(),
+                'user' => $user
+            ]);
+        } 
+
+        else {
+            $this->addFlash('success', 'Ppas !');
+            return $this->redirectToRoute("app_home");
+        }
     }
-}
 }

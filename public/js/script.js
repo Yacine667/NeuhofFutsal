@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-    container.addEventListener('mousedown', () =>{
+    container.addEventListener('mouseleave', () =>{
 
       clearActiveClasses()
 
@@ -72,15 +72,19 @@ document.querySelector('.navTrigger').addEventListener('click',function () {
 
 
 function cacherDiv() {
+
+  const flashSuccess = document.querySelector('.flashMessageSuccess');
+  const flashError = document.querySelector('.flashMessageError');
   
   document.querySelector('.infoBulle').style.display = "none";
-  document.querySelector('.flashMessage').style.display = "none";
+  if (flashSuccess != null) {
+  document.querySelector('.flashMessageSuccess').style.display = "none";}
+  if (flashError != null) {
+  document.querySelector('.flashMessageError').style.display = "none";}
   
 }
 
 setTimeout(() => {cacherDiv()}, 5000);
-
-
 
 // -----------------------MODAL AJOUTER COMMENTAIRES PAGE DETAIL ACTU-----------------------
 

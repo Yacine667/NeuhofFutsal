@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -40,12 +41,11 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Veuillez saisir un mot de passe',
                     ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre Mot De Passe doit contenir au moins 6 caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
+                    
+                    
+                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[(){}&#-`\^@°+=€¨$£*µ%<>,?;.:!§]).{6,}$/', 
+                    'Le mot de passe doit contenir au moins 6 caractères, une majuscule, une minuscule, un chiffre, un caractère spécial')
+                    
                 ],
             ])
         ;

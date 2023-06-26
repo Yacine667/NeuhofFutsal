@@ -17,7 +17,7 @@
             </tr>
 
             <tr>
-                <th colspan="6"><h3>Matchs Joués</h3></th>
+                <th colspan="6"><h3>Matchs Joués A Domicile</h3></th>
             </tr>
 
             <tr>
@@ -27,17 +27,48 @@
                 <th>Score</th>
             </tr>
 
-                {% for rencontre in rencontres %}
+                {% for rencontreDom in rencontresDom %}
 
-                    {% if now > rencontre.rencontre.daterencontre %}
+                    {% if now > rencontreDom.rencontre.daterencontre %}
 
                         <tr>
-                            <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe1 }} </td>  
+                            <td> <img src="{{ rencontreDom.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe1 }} </td>  
                             <td> VS </td>                          
-                            <td> <img src="{{ rencontre.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe2 }} </td>  
-                            <td>{{ rencontre.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
-                            <td>{{ rencontre.rencontre.stade}}</td>
-                            <td>{{ rencontre.rencontre.scorerencontre}}</td>
+                            <td> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td>  
+                            <td>{{ rencontreDom.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
+                            <td>{{ rencontreDom.rencontre.stade}}</td>
+                            <td>{{ rencontreDom.rencontre.scorerencontre}}</td>
+                        </tr>
+
+                    {% else %}
+
+                    {% endif %}
+        
+                {% endfor %}
+
+
+            <tr>
+                <th colspan="6"><h3>Matchs Joués A L'extérieur</h3></th>
+            </tr>
+
+            <tr>
+                <th colspan="3" ></th>
+                <th>Date</th>
+                <th>Stade</th>
+                <th>Score</th>
+            </tr>
+
+                {% for rencontreExt in rencontresExt %}
+
+                    {% if now > rencontreExt.rencontre.daterencontre %}
+
+                        <tr>
+                            <td> <img src="{{ rencontreExt.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe1 }} </td>  
+                            <td> VS </td>                          
+                            <td> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td>  
+                            <td>{{ rencontreExt.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
+                            <td>{{ rencontreExt.rencontre.stade}}</td>
+                            <td>{{ rencontreExt.rencontre.scorerencontre}}</td>
                         </tr>
 
                     {% else %}
@@ -47,7 +78,7 @@
                 {% endfor %}
 
                     <tr>
-                        <th colspan="6"><h3>Matchs A Venir</h3></th>
+                        <th colspan="6"><h3>Matchs A Venir A Domicile</h3></th>
                     </tr>
 
                     <tr>
@@ -57,16 +88,46 @@
             
                     </tr>
 
-                        {% for rencontre in rencontres %}
+                        {% for rencontreDom in rencontresDom %}
 
-                            {% if now <= rencontre.rencontre.daterencontre %}
+                            {% if now <= rencontreDom.rencontre.daterencontre %}
 
                                 <tr>
-                                    <td> <img src="{{ rencontre.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe1 }}</a> </td> 
+                                    <td> <img src="{{ rencontreDom.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe1 }} </td> 
                                     <td> VS </td>                          
-                                    <td> <img src="{{ rencontre.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontre.equipe2 }} </td> 
-                                    <td>{{ rencontre.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
-                                    <td>{{ rencontre.rencontre.stade}}</td>
+                                    <td> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td> 
+                                    <td>{{ rencontreDom.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
+                                    <td>{{ rencontreDom.rencontre.stade}}</td>
+                                </tr>
+
+                            {% else %}
+
+                            {% endif %}
+        
+                        {% endfor %}
+
+
+                    <tr>
+                        <th colspan="6"><h3>Matchs A Venir A L'extérieur</h3></th>
+                    </tr>
+
+                    <tr>
+                        <th colspan="3" ></th>
+                        <th>Date</th>
+                        <th>Stade</th>
+            
+                    </tr>
+
+                        {% for rencontreExt in rencontresExt %}
+
+                            {% if now <= rencontreExt.rencontre.daterencontre %}
+
+                                <tr>
+                                    <td> <img src="{{ rencontreExt.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe1 }} </td> 
+                                    <td> VS </td>                          
+                                    <td> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td> 
+                                    <td>{{ rencontreExt.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
+                                    <td>{{ rencontreExt.rencontre.stade}}</td>
                                 </tr>
 
                             {% else %}
