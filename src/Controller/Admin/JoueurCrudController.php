@@ -35,7 +35,21 @@ class JoueurCrudController extends AbstractCrudController
         yield ImageField::new('photo_joueur')
             ->setBasePath('/')
             ->setUploadDir('public/img/joueurs')
-            ->setUploadedFileNamePattern('/img/joueurs/[slug].[extension]');
+            ->setUploadedFileNamePattern('/img/joueurs/[slug].[extension]')
+            ->setHelp('Formats autorisés : .jpg / .png <br> Taille maximum 5mo')
+            ->setFormTypeOption(
+                'constraints',
+                [
+                    new \App\Validator\Constraints\EasyAdminFile([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [ // pour autoriser seulement les formats suivants :
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez utiliser un fichier autorisé.'
+                    ])
+                ]
+            );
         yield Field::new('video_joueur')
             ->hideOnIndex();
         yield Field::new('note_physique')

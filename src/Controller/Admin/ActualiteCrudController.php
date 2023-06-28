@@ -28,7 +28,21 @@ class ActualiteCrudController extends AbstractCrudController
         yield ImageField::new('photo_actualite')
             ->setBasePath('/')
             ->setUploadDir('public/img/actu')
-            ->setUploadedFileNamePattern('/img/actu/[slug].[extension]');
+            ->setUploadedFileNamePattern('/img/actu/[slug].[extension]')
+            ->setHelp('Formats autorisés : .jpg / .png <br> Taille maximum 5mo')
+            ->setFormTypeOption(
+                'constraints',
+                [
+                    new \App\Validator\Constraints\EasyAdminFile([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [ // pour autoriser seulement les formats suivants :
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez utiliser un fichier autorisé.'
+                    ])
+                ]
+            );
 
     }
 

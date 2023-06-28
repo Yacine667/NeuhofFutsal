@@ -31,7 +31,21 @@ class EntraineurCrudController extends AbstractCrudController
         yield ImageField::new('photo_entraineur')
             ->setBasePath('/')
             ->setUploadDir('public/img/entraineurs')
-            ->setUploadedFileNamePattern('/img/entraineurs/[slug].[extension]');
+            ->setUploadedFileNamePattern('/img/entraineurs/[slug].[extension]')
+            ->setHelp('Formats autorisés : .jpg / .png <br> Taille maximum 5mo')
+            ->setFormTypeOption(
+                'constraints',
+                [
+                    new \App\Validator\Constraints\EasyAdminFile([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [ // pour autoriser seulement les formats suivants :
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez utiliser un fichier autorisé.'
+                    ])
+                ]
+            );
         yield Field::new('video_entraineur');
         yield AssociationField::new('equipes')
             ->onlyOnIndex();

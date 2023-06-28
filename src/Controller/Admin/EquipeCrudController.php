@@ -28,7 +28,21 @@ class EquipeCrudController extends AbstractCrudController
         yield ImageField::new('logo_equipe')
         ->setBasePath('/')
         ->setUploadDir('public/img/logo_equipe')
-        ->setUploadedFileNamePattern('/img/logo_equipe/[slug].[extension]');
+        ->setUploadedFileNamePattern('/img/logo_equipe/[slug].[extension]')
+        ->setHelp('Formats autorisés : .jpg / .png <br> Taille maximum 5mo')
+        ->setFormTypeOption(
+            'constraints',
+            [
+                new \App\Validator\Constraints\EasyAdminFile([
+                    'maxSize' => '5M',
+                    'mimeTypes' => [ // pour autoriser seulement les formats suivants :
+                        'image/jpeg',
+                        'image/png',
+                    ],
+                    'mimeTypesMessage' => 'Veuillez utiliser un fichier autorisé.'
+                ])
+            ]
+        );
         yield AssociationField::new('entraineur');
 
     }

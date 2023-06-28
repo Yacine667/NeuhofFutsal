@@ -29,7 +29,21 @@ class StadeCrudController extends AbstractCrudController
         yield ImageField::new('photo_stade')
             ->setBasePath('/')
             ->setUploadDir('public/img/stade')
-            ->setUploadedFileNamePattern('/img/stade/[slug].[extension]');
+            ->setUploadedFileNamePattern('/img/stade/[slug].[extension]')
+            ->setHelp('Formats autorisés : .jpg / .png <br> Taille maximum 5mo')
+            ->setFormTypeOption(
+                'constraints',
+                [
+                    new \App\Validator\Constraints\EasyAdminFile([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [ // pour autoriser seulement les formats suivants :
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez utiliser un fichier autorisé.'
+                    ])
+                ]
+            );
         yield AssociationField::new('ville');
 
     }
