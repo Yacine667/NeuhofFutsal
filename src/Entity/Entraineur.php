@@ -31,6 +31,9 @@ class Entraineur
     #[ORM\JoinColumn(nullable: true)]
     private Collection $equipes;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $quote = null;
+
     public function __construct()
     {
         $this->equipes = new ArrayCollection();
@@ -122,5 +125,17 @@ class Entraineur
     public function __toString()
     {
        return $this->nom_entraineur ." " . $this-> prenom_entraineur ; 
+    }
+
+    public function getQuote(): ?string
+    {
+        return $this->quote;
+    }
+
+    public function setQuote(?string $quote): self
+    {
+        $this->quote = $quote;
+
+        return $this;
     }
 }

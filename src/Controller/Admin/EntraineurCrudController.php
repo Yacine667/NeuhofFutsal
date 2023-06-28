@@ -47,6 +47,7 @@ class EntraineurCrudController extends AbstractCrudController
                 ]
             );
         yield Field::new('video_entraineur');
+        yield Field::new('quote');
         yield AssociationField::new('equipes')
             ->onlyOnIndex();
     }
