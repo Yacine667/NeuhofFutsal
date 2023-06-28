@@ -22,7 +22,10 @@ class RegistrationFormType extends AbstractType
             ->add('pseudo')
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
+                'required' => true,
                 'mapped' => false,
+                // 'label' => "J'accepte les <a href='#' data-toggle='modal' data-target='#terms>terms and conditions</a>",
+                'label_html' => true,
                 'constraints' => [
                     new IsTrue([
                         'message' => "Vous devez accepter nos conditions d'utilisations",

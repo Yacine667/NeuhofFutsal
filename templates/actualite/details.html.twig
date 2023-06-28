@@ -4,6 +4,40 @@
 
 {% block body %}
 
+<div class="modal-container">
+
+        <div class="overlay modal-trigger"></div>
+
+        <div class="modal">
+
+                <h2>Ajouter Un Commentaire</h2>
+
+                <button class="close-modal modal-trigger">X</button>
+
+                 <div id="addMessage">
+
+                        {{ form_start(formAddPost) }}
+
+                        <div class="addMessage">
+
+                                {{ form_row(formAddPost.texte_post) }}
+
+                        </div>
+
+                        <div class="ajouter">
+
+                                {{ form_row(formAddPost.ajouter) }}
+                                         
+                        </div>
+
+                        {{ form_end(formAddPost) }}
+
+                </div>
+
+        </div>
+        
+</div>
+
 <div class="detailActuContainer">
 
         <div class="detailActuWrapper">
@@ -27,38 +61,6 @@
 
                 <button class="modal-btn modal-trigger">Ajouter Un Commentaire</button>
 
-                        <div class="modal-container">
-
-                                <div class="overlay modal-trigger"></div>
-
-                                <div class="modal">
-
-                                <h2>Ajouter Un Commentaire</h2>
-
-                                        <button class="close-modal modal-trigger">X</button>
-
-                                <div id="addMessage">
-
-                                        {{ form_start(formAddPost) }}
-
-                                <div class="addMessage">
-
-                                        {{ form_row(formAddPost.texte_post) }}
-
-                                </div>
-
-                                <div class="ajouter">
-
-                                         {{ form_row(formAddPost.ajouter) }}
-                                         
-                                </div>
-
-                                {{ form_end(formAddPost) }}
-
-                                </div>
-
-                                </div>
-                        </div>
                         
         {% endif %}
 

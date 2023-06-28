@@ -694,27 +694,10 @@ margin-top: 3%;
   }
 }
 
-@media screen and (max-width: 64rem) {
-    .col {
-      width: calc(33.333333% - 2rem);
-    }
-  }
-
-@media screen and (max-width: 48rem) {
-    .col {
-      width: calc(50% - 2rem);
-    }
-  }
-
-@media screen and (max-width: 32rem) {
-    .col {
-      width: calc(100% - 2rem);
-    }
-  }
 
 
 
-        /* _______________________Page Entraineur _______________________ */
+    /* _______________________Page Entraineur _______________________ */
 
 
 #entraineurContainer {
@@ -724,6 +707,7 @@ margin-top: 3%;
   background-size: cover;
   font-family: 'Quantico', sans-serif;
   min-height: 100vh;
+  padding-top: 8%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -731,4 +715,133 @@ margin-top: 3%;
   z-index: 45;
   gap: 20px;
   
+}
+
+
+
+/*  ---------------------MEDIA QUERY--------------------- */
+
+
+
+@media only screen and (min-width: 801px) and (max-width: 1165px) {
+
+
+          /* _______________________Page Index _______________________ */
+  
+  /* ----------------------------- Player Card Index ------------------------ */
+
+  .nameTeam h2 {
+
+    font-size: 4.2em;
+  }
+
+  .nameTeam h3 {
+
+    font-size: 3.4em;
+  }
+
+          /* _______________________Page Details _______________________ */
+
+  /* ----------------------------- Player Card Details ------------------------ */
+
+  #containerDetailPlayer {
+
+    flex-direction: column;
+    padding-top: 15%;
+  }
+
+  .container {
+
+    width: 50%;
+    margin-bottom: 5%;
+  }
+
+  .animeName {
+
+    display: none;
+  }
+
+
+}
+
+@media only screen and (max-width: 800px)  {
+
+          /* _______________________Page Index _______________________ */
+  
+  /* ----------------------------- Player Card Index ------------------------ */
+
+  #wrapperCard {
+
+    padding-top: 30%;
+  }
+
+  .nameTeam h2 {
+
+    font-size: 2.2em;
+  }
+
+  .nameTeam h3 {
+
+    font-size: 1.4em;
+  }
+
+
+        /* _______________________Page Details _______________________ */
+
+  /* ----------------------------- Player Card Details ------------------------ */
+
+  #containerDetailPlayer {
+
+    flex-direction: column;
+    padding-top: 30%;
+  }
+
+  .container {
+
+    width: 80%;
+  }
+
+  .animeName {
+
+    display: none;
+  }
+
+  .containerInfoPlayer {
+
+    margin-top: 5%;
+    margin-bottom: 10%;
+
+  }
+
+  .infoPlayer {
+
+    justify-content:center;
+
+  }
+
+  .infoPlayer h2 {
+
+    font-size: 3em;
+  }
+
+  .infoPlayer span {
+
+    font-size: 1.8em;
+  }
+
+
+
+      /* _______________________Page Entraineur _______________________ */
+
+    
+
+      #entraineurContainer {
+
+        flex-direction: column;
+        margin-top: 0%;
+        padding-top: 30%;
+        padding-left: 2%;
+        padding-right: 2%;
+      }
+
 }

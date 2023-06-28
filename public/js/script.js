@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     container.addEventListener('mouseleave', () =>{
 
       clearActiveClasses()
+      showTitle()
 
     })
 
   }
 
-        
   function clearActiveClasses(){
 
     slides.forEach( (slide) =>{
@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
     titles.forEach( (title) =>{
 
       title.style.opacity = "0";
+
+    })
+
+  }
+
+  function showTitle(){
+
+    titles.forEach( (title) =>{
+
+      title.style.opacity = "1";
 
     })
 

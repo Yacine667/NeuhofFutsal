@@ -36,7 +36,7 @@
                             <td> VS </td>                          
                             <td> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td>  
                             <td>{{ rencontreDom.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
-                            <td>{{ rencontreDom.rencontre.stade}}</td>
+                            <td><a href="{{ path('details_stade', {'id': rencontreDom.rencontre.stade.id}) }}">{{ rencontreDom.rencontre.stade}}</a></td>
                             <td>{{ rencontreDom.rencontre.scorerencontre}}</td>
                         </tr>
 
@@ -67,7 +67,7 @@
                             <td> VS </td>                          
                             <td> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td>  
                             <td>{{ rencontreExt.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
-                            <td>{{ rencontreExt.rencontre.stade}}</td>
+                            <td><a href="{{ path('details_stade', {'id': rencontreExt.rencontre.stade.id}) }}">{{ rencontreExt.rencontre.stade}}</a></td>
                             <td>{{ rencontreExt.rencontre.scorerencontre}}</td>
                         </tr>
 
@@ -97,7 +97,7 @@
                                     <td> VS </td>                          
                                     <td> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td> 
                                     <td>{{ rencontreDom.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
-                                    <td>{{ rencontreDom.rencontre.stade}}</td>
+                                    <td><a href="{{ path('details_stade', {'id': rencontreDom.rencontre.stade.id}) }}">{{ rencontreDom.rencontre.stade}}</a></td>
                                 </tr>
 
                             {% else %}
@@ -127,7 +127,7 @@
                                     <td> VS </td>                          
                                     <td> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td> 
                                     <td>{{ rencontreExt.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
-                                    <td>{{ rencontreExt.rencontre.stade}}</td>
+                                    <td><a href="{{ path('details_stade', {'id': rencontreExt.rencontre.stade.id}) }}">{{ rencontreExt.rencontre.stade}}</a></td>
                                 </tr>
 
                             {% else %}

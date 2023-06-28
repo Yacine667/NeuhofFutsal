@@ -16,6 +16,11 @@ class ProfilController extends AbstractController
     #[Route('/profil/{id}', name: 'app_profil')]
     public function index(ManagerRegistry $doctrine, User $user, Request $request, $id): Response
     {  
+        if ($this->getUser() == null) {
+            $this->addFlash('error', 'Vous ne pouvez pas accéder a cette page sans être connecté.');
+            return $this->redirectToRoute('app_home');
+        }
+
         $currUserId = $this->getUser()->getId();
         if($currUserId != $id){
         return $this->redirectToRoute('app_profil', ['id' => $currUserId]);
@@ -38,8 +43,6 @@ class ProfilController extends AbstractController
 
     }
         
-      
-        
         return $this->render('profil/index.html.twig', [
             'user' => $user,
         ]);
@@ -60,6 +63,7 @@ class ProfilController extends AbstractController
         $entityManager->remove($user);
         $entityManager->flush();
         $this->container->get('security.token_storage')->setToken(null);
+        $this->addFlash('success', 'Votre Profil a correctement été supprimé !');
 
 
         return $this->redirectToRoute('app_home');
@@ -67,6 +71,11 @@ class ProfilController extends AbstractController
 
     #[Route('/comment/editProfil/{id}', name: 'edit_profil')]
     public function editProfil(ManagerRegistry $doctrine, User $user, Request $request, $id): Response {
+
+        if ($this->getUser() == null) {
+            $this->addFlash('error', 'Vous ne pouvez pas accéder a cette page sans être connecté.');
+            return $this->redirectToRoute('app_home');
+        }
 
         $currUserId = $this->getUser()->getId();
         $userId = $user ->getId();

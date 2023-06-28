@@ -71,11 +71,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 2%;
-    margin-top: 3%;
+    padding: 4%;
+    margin-left: 5%;
     max-height: 100%;
     max-width: 40vw;
-    margin-left: 5%;
     background: var(--div);
     box-shadow: var(--boxShadow);
     margin-top: 5%;
@@ -200,10 +199,6 @@
     min-width: 100vw;
     min-height: 100vh;
     background-color: var(--div);
-    background-image: var(--gifTextPresentation);;
-    background-size: 40%;
-    background-repeat: no-repeat;
-    background-position: 5%;
     transition: 0.5s ease-in-out;
 
 }
@@ -212,7 +207,7 @@
 .textePresentation {
 
     min-width: 40vw;
-    min-height: 80vh;
+    min-height: 60vh;
     margin: 5%;
     background: rgba(255, 0, 0, 0);
     box-shadow: var(--boxShadow);
@@ -535,3 +530,255 @@ transition: 0.5s ease-in-out;
 
 }
 
+
+
+
+/*  ---------------------MEDIA QUERY--------------------- */
+
+
+
+@media only screen and (min-width: 801px) and (max-width: 1200px) {
+
+    /*-----------------------SECTION TOP-----------------------*/
+
+
+
+    #mainIntro {
+
+        justify-content: center;
+        align-items: center;
+        max-height: none;
+        padding-top: 10%;
+        min-width: 100%;
+
+    }
+
+    .homeIntro {
+
+        max-width: 60%;
+    }
+
+    .txtIntro h1 {
+
+        font-size: 7.5em;
+    
+    }
+
+    .txtIntro h2 {
+
+        font-size: 5.5em;
+    
+    }
+    
+    .homeIntro h2 {
+
+        font-size: 2em;
+    }
+
+    .homeIntro p {
+
+        font-size: 1.2em;
+    }
+
+
+    /*-----------------------SECTION LIGNE NOMS CLUB-----------------------*/
+
+
+    #lineClub {
+
+        font-size: 4em;
+    }
+
+    @keyframes show {
+        0% {margin-top:10%;}
+        90% {margin-top:-270%;}
+        100% {margin-top:10%;}
+      }
+
+
+    /*-----------------------SECTION LAST ACTUALITES-----------------------*/
+
+
+    #homeActuContainer h2 {
+
+        font-size: 1.6em;
+    }
+
+    .slide span {
+
+        font-size: 1.4em;
+        left: 10%;
+    }
+
+    .slide h3 {
+
+        font-size: 1.6em;
+    }
+
+
+}
+
+@media only screen and (max-width: 800px)  {
+
+
+    /*-----------------------SECTION TOP-----------------------*/
+
+
+    #mainIntro {
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-height: none;
+        padding-top: 30%;
+        min-width: 100%;
+
+    }
+
+    .homeIntro {
+
+        margin-left: 0%;
+    }
+
+    .txtIntro h1 {
+
+        font-size: 6em;
+    
+    }
+
+    .txtIntro h2 {
+
+        font-size: 4em;
+    
+    }
+
+    .homeIntro {
+
+        max-width: 100%;
+    }
+
+    .homeIntro h2 {
+
+        font-size: 2em;
+    }
+
+    .homeIntro p {
+
+        font-size: 1.2em;
+    }
+
+
+    /*-----------------------SECTION FONDATEUR-----------------------*/
+
+
+    #homePresentation {
+
+        flex-direction: column;
+
+    }
+
+    .textePresentation h3 {
+
+        font-size: 1.8em;
+    }
+
+    .textePresentation p {
+
+        font-size: 1em;
+        padding-top: 2%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .imgPresentation {
+
+        min-width: 100vw;
+    }
+
+    .imgPresentation {
+
+        min-width: 100vw;
+        margin: 2%;
+    }
+
+    .imgPresentation img {
+
+        max-width: 90vw;
+    }
+
+    .imgPresentation h4 {
+
+        font-size: 0.8em;
+    }
+
+    .imgPresentation p {
+
+        font-size: 0.6em;
+    }
+
+    .photoModal {
+
+        max-width: 100%;
+        padding: 0px;
+    }
+
+
+
+    /*-----------------------SECTION LIGNE NOMS CLUB-----------------------*/
+
+
+    #lineClub {
+
+        font-size: 2em;
+    }
+
+    @keyframes show {
+        0% {margin-top:10%;}
+        90% {margin-top:-470%;}
+        100% {margin-top:10%;}
+      }
+
+
+
+    /*-----------------------SECTION LAST ACTUALITES-----------------------*/
+
+
+    #homeActuContainer h2 {
+
+        font-size: 1.2em;
+    }
+
+    .slide {
+
+        height : 50vh;
+    }
+
+    .slide span {
+
+        font-size: 1em;
+        left: 10%;
+    }
+
+    .slide h3 {
+
+        font-size: 1.2em;
+    }
+
+
+    /*-----------------------SECTION SPONSOR-----------------------*/
+
+
+
+    #sponsorContainer {
+
+        padding-bottom: 5%;
+
+    }
+
+    #sponsorContainer h2 {
+
+        font-size: 1.2em;
+
+    }
+
+}

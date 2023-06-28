@@ -46,6 +46,8 @@
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
+            <a href="{{ path('app_forgot_password_request') }}" class="resetLink">Mot De Passe Oublié</a>
+
         
 
         {#
@@ -68,6 +70,7 @@
             </button>
 
         </div>
+
 
     </form>
 

@@ -6,6 +6,10 @@
 }
 
 
+
+/* ---------------------BOUTON DARK/LIGHT--------------------- */
+
+
 .infoBulle {
 
   position: absolute;
@@ -186,7 +190,7 @@ body {
   align-items: center;
   width: 100%;
   color: white;
-  background: rgba(30, 255, 0, 0.331);
+  background: rgba(30, 255, 0, 0.646);
   box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
@@ -203,7 +207,7 @@ body {
   align-items: center;
   width: 100%;
   color: white;
-  background: rgba(255, 0, 0, 0.533);
+  background: rgba(255, 0, 0, 0.563);
   box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
@@ -424,7 +428,7 @@ body {
   background: var(--subMenuBg);
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px );
-  border-radius: 0 0 10px 20px;
+  border-radius: 0 0 20px 20px;
 
 }
 
@@ -1153,18 +1157,19 @@ color: var(--links);
 #containerProfil {
 
   min-width: 80vw;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 8%;
-  margin-bottom: 3%;
-  padding: 2%;
-  color: white;
+  padding-top: 8%;
+  padding-bottom: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
+  color: var(--links);
   font-family: 'Quantico', sans-serif;
   background-color: #040404;
-  background-image: url("/img/front/redsmoke.gif");
+  background-image: var(--gifDiv);
   background-size: cover;
 
 }
@@ -1172,7 +1177,7 @@ color: var(--links);
 
 #containerProfil h2 {
 
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
   font-size: 2.2em;
   font-family: 'Quantico', sans-serif;
 
@@ -1188,11 +1193,39 @@ color: var(--links);
 
 }
 
+.modifProfil {
+
+  background: var(--subMenuBg);
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--links);
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  letter-spacing: 4px;
+  font-family: 'Quantico', sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+.modifProfil:hover {
+
+  background: var(--subMenuBg);
+  color: var(--links);
+  border-radius: 5px;
+  box-shadow: var(--shadowButton);
+  
+}
+
 
 .containerInfo {
 
-  background: rgba(255, 255, 255, 0.056);
-  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  background: rgba(255, 255, 255, 0);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
@@ -1204,6 +1237,7 @@ color: var(--links);
   align-items: center;
   gap: 50px;
   margin-right: 2%;
+  margin-top: 10%;
 
 }
 
@@ -1213,8 +1247,8 @@ color: var(--links);
   min-width: 60vw;
   min-height: 40vh;
   text-align: center;
-  background: rgba(255, 255, 255, 0.056);
-  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  background: rgba(212, 212, 212, 0);
+  box-shadow: var(--boxShadow);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
@@ -1224,7 +1258,7 @@ color: var(--links);
 
 .postProfil {
 
-  background: rgba(2, 0, 0, 0.2);
+  background: var(--bg-color);
   backdrop-filter: blur( 8.5px );
   -webkit-backdrop-filter: blur( 8.5px );
   display: flex;
@@ -1234,13 +1268,14 @@ color: var(--links);
   flex-wrap: wrap;
   margin: 1%;
   border-radius: 10px;
+  max-height: 100%;
 
 }
 
 
 .postProfil p {
  
-  font-size: 1.4em;
+  font-size: 1.2em;
 
 }
 
@@ -1248,9 +1283,10 @@ color: var(--links);
 .postProfil span {
 
   font-size: 0.7em;
-  color: red;
-  background: rgba(15, 14, 14, 0.289);
+  color: var(--linksHover);
+  background: rgb(15, 14, 14);
   border-radius: 5px;
+  padding: 0.3%;
 
 }
 
@@ -1276,7 +1312,7 @@ color: var(--links);
 
 .postActions a {
 
-  color: white;
+  color: var(--links);
   font-size: 1.4em;
   transition:all 0.25s;
 
@@ -1285,7 +1321,7 @@ color: var(--links);
 
 .postActions a:hover {
 
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
   font-size: 1.6em;
 
 }
@@ -1295,9 +1331,9 @@ color: var(--links);
 
   font-size: 2.4em;
   font-family: 'Quantico', sans-serif;
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: var(--textShadow);
   text-align: center;
-  color: white;
+  color: var(--links);
 
 }
 
@@ -1317,7 +1353,7 @@ color: var(--links);
 
 .supprSecond:hover {
 
-  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+  text-shadow: rgb(255, 255, 255) 1px 0 10px;
   transition: all 0.4s;
 
 }
@@ -1337,23 +1373,136 @@ color: var(--links);
 
 
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 801px) and (max-width: 1200px) {
 
-  .containerNav {
 
-    margin: 0;
+  /* ---------------------NAVBAR----------------------*/
 
-  }
 
-}
-
-@media only screen and (max-width: 800px)  {
 
   .navTrigger {
 
     display: block;
   }
 
+
+  .nav div.logo {
+
+    margin-left: 15px;
+    width: 25%;
+
+  }
+
+
+  .nav div.logo img {
+
+    width: 80%;
+
+  }
+
+
+  .nav div.main_list {
+
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+
+  }
+
+
+  .nav div.show_list {
+
+    height: auto;
+    display: block;
+      
+  }
+
+  #mainListDiv {
+
+    background: var(--div);
+    box-shadow: var(--boxShadow);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+  }
+
+
+  .nav div.main_list ul {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--div);
+    box-shadow: var(--boxShadow);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+   
+  }
+
+
+  .nav div.main_list ul li {
+
+    width: 100%;
+    text-align: right;
+
+  }
+
+
+  .nav div.main_list ul li a {
+
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    padding: 20px;
+
+  }
+
+  .navlinks :hover > .sub-menu {
+
+    display: none;
+  
+  }
+
+
+  /*  ---------------------PAGE PLAN DU SITE---------------------  */
+
+  #planSite {
+
+    padding-top: 15%;
+
+  }
+
+
+
+/*  ---------------------Page CGU---------------------  */
+
+.cguContainer{
+
+  padding-top: 18%;
+
+}
+
+}
+ 
+
+@media only screen and (max-width: 800px)  {
+
+
+  /* ---------------------NAVBAR----------------------*/
+
+
+  .navTrigger {
+
+    display: block;
+  }
+
+
+  .navlinks :hover > .sub-menu {
+
+    display: none;
+  
+  }
 
   .nav div.logo {
 
@@ -1381,11 +1530,22 @@ color: var(--links);
 
   .nav div.show_list {
 
-    height: auto;
+    height: 100vh;
     display: block;
+    background: var(--div);
+    box-shadow: var(--boxShadow);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
       
   }
 
+#mainListDiv {
+
+  background: var(--div);
+  box-shadow: var(--boxShadow);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+}
 
   .nav div.main_list ul {
     flex-direction: column;
@@ -1394,12 +1554,14 @@ color: var(--links);
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.563);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+    background: var(--div);
+    box-shadow: var(--boxShadow);
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
    
   }
+
+  
 
 
   .nav div.main_list ul li {
@@ -1409,30 +1571,132 @@ color: var(--links);
 
   }
 
-
   .nav div.main_list ul li a {
 
     text-align: center;
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.8em;
     padding: 20px;
 
   }
 
 
-  #planSite {
+  /* ---------------------BOUTON DARK/LIGHT--------------------- */
 
+
+
+.theme-switch-wrapper {
+
+  left: 40%;
+
+}
+
+
+
+  /*  ---------------------PAGE PLAN DU SITE---------------------  */
+
+#planSite {
+
+  padding-top: 20%;
   flex-direction: column;
   min-height: 100vh;
   gap: 20px;
-
-  }
-
-
-  .titlePlan {
-
-  font-size: 2em;
+  padding-bottom: 8%;
   
-  }
+}
+
+.titlePlan {
+
+  font-size: 1.4em;
+  
+}
+
+.mainLink a {
+
+  font-size: 1em;
+
+
+}
+
+
+/*  ---------------------Page CGU---------------------  */
+
+.cguContainer{
+
+  padding-top: 30%;
+  
+}
+
+.cgu h2 {
+
+  font-size: 1.2em;
+}
+
+.cgu p {
+
+  font-size: 0.8em;
+}
+
+
+
+  /*  ---------------------FOOTER--------------------- */
+
+.footer_center {
+
+  gap: 20px;
+	width:50%;
+  margin-top: 8%;
+
+}
+#foot1{
+  display: none;
+}
+
+#foot2{
+  display: none;
+}
+
+.footer h3 {
+
+	font-family: 'Allerta Stencil', sans-serif;
+	font-size: 0.8em;
+	font-weight: 100;
+
+}
+
+
+
+/*  ---------------------PAGE PROFIL---------------------  */
+
+#containerProfil {
+
+  flex-direction: column;
+  padding-top: 30%;
+  padding-bottom: 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+#containerProfil h2 {
+
+  font-size: 1.6em;
+
+}
+
+.containerInfo {
+
+  margin-top: 0%;
+  margin-left: 0%;
+  margin-bottom: 5%;
+}
+
+.postProfil p {
+
+  font-size: 0.8em;
+  line-height: 2;
+
+}
+
+
 
 }

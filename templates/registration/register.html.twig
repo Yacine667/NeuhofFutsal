@@ -22,9 +22,12 @@
                     label: 'Password'
                 }) }} </div>
 
-                <div class="formRow">{{ form_row(registrationForm.agreeTerms) }}</div>
+                <div class="formRow" id="checkAgree">{{ form_row(registrationForm.agreeTerms,{
+                    label: "J'accepte les <a href='/CGU'>Conditions D'utilisation</a>"
+                }) }}</div>
+                
 
-                <button class="submit-btn" type="submit">Register</button>
+                <button class="submit-btn" type="submit">S'inscrire</button>
         
             {{ form_end(registrationForm) }}
 

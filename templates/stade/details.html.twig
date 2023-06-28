@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{stade.nomStade}}{% endblock %}
+
+{% block body %}
+<section id="containerDetailStade">
+
+<a href=javascript:history.go(-1) class="goBack"><i class="fa-solid fa-backward"></i></a>
+<a href=javascript:history.go(-1) class="goBack">Retour à la page précédente</a>
+
+    <div class="detailStade">
+
+        <div class="imgStade">
+        
+            <img src="{{stade.photoStade}}" alt="Photo Du Stade">
+
+        </div>
+
+        <div class="infoStade">
+
+            <h2>{{stade.nomStade}}</h2>
+            <span>Adresse : {{stade.adresseStade}}</span>
+            <span>Ville : {{stade.ville.nomVille}}</span>
+
+        </div>
+    
+    </div>
+
+</section>
+{% endblock %}

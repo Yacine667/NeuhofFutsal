@@ -48,17 +48,7 @@
                 <ul class="navlinks">
 
                     <li><a href="{{ path('app_actualite') }}">Actualités</a></li>
-                    <li><a href="{{ path('app_indexTeam') }}">Equipe U-9</a>
-
-                        <ul class="sub-menu">
-
-                            <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
-                            <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
-                            <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
-
-                        </ul>
-
-                    </li>
+                    
                     <li><a href="{{ path('app_indexTeam2') }}">Equipe 1</a>
 
                         <ul class="sub-menu">
@@ -66,6 +56,17 @@
                             <li> <a href="{{ path('app_equipe2') }}">Effectif</a></li>
                             <li> <a href="{{ path('app_entraineur2') }}">Entraineur</a></li>
                             <li> <a href="{{ path('app_rencontre2') }}">Matchs</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li><a href="{{ path('app_indexTeam') }}">Equipe U-11</a>
+
+                        <ul class="sub-menu">
+
+                            <li> <a href="{{ path('app_equipe') }}">Effectif</a></li>
+                            <li> <a href="{{ path('app_entraineur') }}">Entraineur</a></li>
+                            <li> <a href="{{ path('app_rencontre') }}">Matchs</a></li>
 
                         </ul>
 
@@ -84,7 +85,9 @@
 
                     {% if app.user and is_granted("ROLE_ADMIN") %}
 
+                    <li><a href="{{ path('app_profil', {'id': app.user.id}) }}">Profil</a></li>
                     <li><a href="{{ path('admin') }}" onclick="window.open('{{ path('admin') }}', 'Page Admin' ,'height=800, width=1200, top=100, left=100, toolbar=no, ');return false;"><i class="fa-solid fa-toolbox"></i><span>Outils Admin</span></a></li>
+                    
 
                     {% elseif app.user %}
 
@@ -133,6 +136,16 @@
             
     {% endfor %}
 
+        {% for message in app.flashes('error') %}
+
+        <div class="flashMessageError">
+
+            <p>{{ message }}</p>
+
+        </div>
+            
+    {% endfor %}
+
     <body data-theme="dark" >
 
         {% block body %}
@@ -150,7 +163,7 @@
                 <div id="container">
 
                     <div id="cont">
-                        <div class="footer_center">
+                        <div class="footer_center" id="foot1">
 
                             <img src="{{asset('img/1.png')}}" alt="Logo Neuhof Futsal"> 
 
@@ -188,7 +201,7 @@
                             
                         </div>
 
-                        <div class="footer_center">
+                        <div class="footer_center" id="foot2">
 
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.5722717705285!2d7.7717980766395725!3d48.54142827129095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c95e1254b1af%3A0xccde98642fc7d3bd!2s64%20All.%20Reuss%2C%2067100%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1686060774180!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             

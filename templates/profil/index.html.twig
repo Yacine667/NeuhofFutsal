@@ -30,7 +30,7 @@
         <h2>Mon Profil : </h2>
         <h3>Pseudo : {{ user.pseudo }}</h3>
         <h3>E-mail : {{ user.email }}</h3>
-        <a href="{{ path('edit_profil',{'id':user.id})}}"><i class="fa-regular fa-pen-to-square"></i></a> 
+        <a href="{{ path('edit_profil',{'id':user.id})}}"><button class="modifProfil">Modifier le compte</button></a> 
         <button class="modal-btn modal-trigger">Supprimer le compte</button>
     
     </div>

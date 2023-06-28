@@ -1,7 +1,3 @@
-
-
-
-
 /* PAGE TABLEAU RENCONTRE */
 
 .rencontreContainer {
@@ -10,12 +6,9 @@
     align-items: center;
     justify-content: center;
     padding: 5%;
-
-    /* margin-bottom: 5%; */
     background-color: #040404;
     background-image: var(--gifDiv);
     background-size: cover;
-    /* box-shadow: 0 15px 25px rgba(255, 0, 0, 0.6); */
     backdrop-filter: blur( 8.5px );
     -webkit-backdrop-filter: blur( 8.5px );
     border-radius: 10px;
@@ -52,7 +45,7 @@
   
     .tableRencontre a {
   
-    color: white;
+    color: var(--links);
   }
   
   
@@ -73,3 +66,149 @@
     width: 70%;
       
   }
+
+
+
+  /* PAGE DETAIL STADE */
+
+
+  #containerDetailStade {
+
+    background-color: #040404;
+    background-image: var(--gifDiv);
+    background-size: cover;
+    font-family: 'Quantico', sans-serif;
+    padding-top: 10%;
+    min-height: 100vh;
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+  .detailStade {
+
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .imgStade  {
+
+    min-width: 50%;
+    max-width: 60%;
+    margin-left: 2%;
+  }
+
+  .imgStade img {
+
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .infoStade {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    color: var(--links);
+    font-size: 2em;
+    margin-left: 2%;
+  }
+
+  .goBack {
+
+    color: var(--linksHover);
+    font-size: 1em;
+    text-decoration: none;
+  }
+
+  /*  ---------------------MEDIA QUERY--------------------- */
+
+
+
+@media only screen and (min-width: 801px) and (max-width: 1165px) {
+
+
+}
+
+@media only screen and (max-width: 800px)  {
+
+
+
+  /* PAGE TABLEAU RENCONTRE */
+
+
+  .rencontreContainer {
+
+    padding: 0%;
+    padding-top: 30%;
+    align-items: normal;
+  }
+
+  .tableRencontre {
+
+    margin-top: 0%;
+  }
+
+  .tableRencontre h2 {
+
+    font-size: 1.6em;
+  }
+
+  .tableRencontre h3 {
+
+    font-size: 1.3em;
+  }
+
+  .tableRencontre th {
+
+    font-size: 1em;
+  }
+
+  .tableRencontre td {
+
+    font-size: 0.6em;
+  }
+
+
+    /* PAGE DETAIL STADE */
+
+
+    #containerDetailStade {
+
+      padding-top: 30%;
+
+
+    }
+
+    .detailStade {
+
+      flex-direction: column;
+    }
+
+    .imgStade {
+
+      min-width: 80%;
+      max-width: 100%;
+      padding: 2%;
+      margin-left: 0%;
+    }
+
+    .infoStade h2 {
+
+      font-size: 1.2em;
+
+    }
+
+    .infoStade span {
+
+      font-size: 0.8em;
+    }
+}
