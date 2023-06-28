@@ -80,10 +80,9 @@ class ActualiteController extends AbstractController
     ]);}
 
 else {
-    $actuId = $post->getActualite()->getId();
-    $this->addFlash('success', "Vous N'avez Pas Les Droits Requis");
-   return $this->redirectToRoute('details_actualite',['id'=> $actuId
-]);}
+    $this->addFlash('error', "Vous N'avez Pas Les Droits Requis");
+    return $this->redirectToRoute("app_home");
+}
 
 }
 
@@ -109,6 +108,7 @@ public function editComment(ManagerRegistry $doctrine, Post $post, Request $requ
             'post' => $post
         ]);
     } else {
+        $this->addFlash('error', "Vous N'avez Pas Les Droits Requis");
         return $this->redirectToRoute("app_home");
     }
 }

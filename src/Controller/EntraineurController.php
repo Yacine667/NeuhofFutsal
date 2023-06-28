@@ -38,20 +38,27 @@ public function index2(ManagerRegistry $doctrine, Equipe $equipe = null, Request
 
 #[Route('/entraineur/{id}/delete', name: 'entraineur_delete')]
 public function delete(ManagerRegistry $doctrine, Entraineur $entraineur){   
-    $equipes = $entraineur->getEquipes();
-    $entityManager = $doctrine->getManager();
+    if ($this->isGranted('ROLE_ADMIN')) {
 
-    // Détacher les posts de l'utilisateur
-    foreach ($equipes as $equipe) {
-        $equipe->setEntraineur(null);
-        $entityManager->persist($equipe);
-    }
+        $equipes = $entraineur->getEquipes();
+        $entityManager = $doctrine->getManager();
+        // Détacher les posts de l'utilisateur
+        foreach ($equipes as $equipe) {
+            $equipe->setEntraineur(null);
+            $entityManager->persist($equipe);
+        }
 
-    $entityManager->remove($entraineur);
-    $entityManager->flush();
+        $entityManager->remove($entraineur);
+        $entityManager->flush();
 
 
     return $this->redirectToRoute('admin');
 }
 
+else {
+    $this->addFlash('error', "Vous N'avez Pas Les Droits Requis");
+    return $this->redirectToRoute("app_home");
+}
+
+}
 }
