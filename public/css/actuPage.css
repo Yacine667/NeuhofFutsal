@@ -219,6 +219,13 @@
 
 }
 
+.help-text {
+
+  color: var(--links);
+  text-align: center;
+  font-size: 0.8em;
+}
+
 
 .modal-btn {
 
@@ -367,6 +374,9 @@
 
   width: 100%;
   min-height: 200px;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 30vh;
   background: var(--div);
   box-shadow: var(--subMenuBg);
   backdrop-filter: blur( 4px );

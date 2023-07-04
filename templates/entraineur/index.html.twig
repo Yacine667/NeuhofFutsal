@@ -33,9 +33,16 @@
       <div class="inner">
 
         <div class="top-section">
+         {% if equipe.entraineur.quote is empty %}
 
-            <h2>{{ equipe.entraineur.quote}}</h2>
-             
+          <h2>Ici C'est Neuhof !</h2>
+
+         {% else %}
+
+          <h2>{{ equipe.entraineur.quote}}</h2>
+
+         {% endif %}
+         
         </div>
           
       </div>

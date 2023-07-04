@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -24,7 +25,8 @@ class RencontreCrudController extends AbstractCrudController
 
         yield IdField::new('id')
             ->onlyOnIndex();
-        yield Field::new('date_rencontre');
+        yield DateTimeField::new('date_rencontre')
+        ->setFormat('dd-MM-yyyy');
         yield Field::new('score_rencontre');
         yield AssociationField::new('stade');
         yield CollectionField::new('opposes')

@@ -19,7 +19,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
         new Get(normalizationContext: ['groups' => 'actualite:item']),
         new GetCollection(normalizationContext: ['groups' => 'actualite:list'])
     ],
-    paginationEnabled: false,
+    paginationEnabled: true,
 )]
 
 class Actualite
