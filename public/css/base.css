@@ -1255,6 +1255,13 @@ color: var(--links);
 
 }
 
+.emptyComments {
+
+  text-align: center;
+  font-size: 1.6em;
+  text-shadow: var(--textShadow);
+}
+
 
 .postProfil {
 

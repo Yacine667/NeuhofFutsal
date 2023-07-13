@@ -13,6 +13,9 @@ class Oppose
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $score_match = null;
+
     #[ORM\ManyToOne(inversedBy: 'opposes')]
     private ?Rencontre $rencontre = null;
 
@@ -25,6 +28,18 @@ class Oppose
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getScoreMatch(): ?string
+    {
+        return $this->score_match;
+    }
+
+    public function setScoreMatch(?string $score_match): self
+    {
+        $this->score_match = $score_match;
+
+        return $this;
     }
 
     public function getRencontre(): ?Rencontre

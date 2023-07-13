@@ -60,7 +60,11 @@
          {% if app.user %}
 
         <button class="modal-btn modal-trigger">Ajouter Un Commentaire</button>
-                    
+
+         {% else %}
+
+                <span class="noUser"> Pour commenter, vous devez vous <a href="{{ path('app_login') }}">Connecter</a> où vous <a href="{{ path('app_register') }}">Inscrire</a>  </span>  
+
          {% endif %}
 
         <div class="commentWrapper">

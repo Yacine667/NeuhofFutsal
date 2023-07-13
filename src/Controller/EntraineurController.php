@@ -25,40 +25,45 @@ class EntraineurController extends AbstractController
         ]);
 }
 
-#[Route('/entraineur2', name: 'app_entraineur2')]
-public function index2(ManagerRegistry $doctrine, Equipe $equipe = null, Request $request): Response
-{
+    #[Route('/entraineur2', name: 'app_entraineur2')]
+    public function index2(ManagerRegistry $doctrine, Equipe $equipe = null, Request $request): Response
+    {
 
-    $equipe = $doctrine->getRepository(Equipe::class)->findOneBy(['id' => 2 ] ,[]);
+        $equipe = $doctrine->getRepository(Equipe::class)->findOneBy(['id' => 2 ] ,[]);
 
-    return $this->render('entraineur/index.html.twig', [
-        'equipe' => $equipe 
-    ]);
-}
+        return $this->render('entraineur/index.html.twig', [
+            'equipe' => $equipe 
+        ]);
+    }
 
-#[Route('/entraineur/{id}/delete', name: 'entraineur_delete')]
-public function delete(ManagerRegistry $doctrine, Entraineur $entraineur){   
-    if ($this->isGranted('ROLE_ADMIN')) {
+    #[Route('/entraineur/{id}/delete', name: 'entraineur_delete')]
+    public function delete(ManagerRegistry $doctrine, Entraineur $entraineur){   
 
-        $equipes = $entraineur->getEquipes();
-        $entityManager = $doctrine->getManager();
-        // Détacher les posts de l'utilisateur
-        foreach ($equipes as $equipe) {
-            $equipe->setEntraineur(null);
-            $entityManager->persist($equipe);
+        if ($this->isGranted('ROLE_ADMIN')) {
+
+            $equipes = $entraineur->getEquipes();
+            $entityManager = $doctrine->getManager();
+            // Détacher les posts de l'utilisateur
+            foreach ($equipes as $equipe) {
+
+                $equipe->setEntraineur(null);
+                $entityManager->persist($equipe);
+
+            }
+
+            $entityManager->remove($entraineur);
+            $entityManager->flush();
+
+
+        return $this->redirectToRoute('admin');
         }
 
-        $entityManager->remove($entraineur);
-        $entityManager->flush();
+        else {
 
+            $this->addFlash('error', "Vous N'avez Pas Les Droits Requis");
+            return $this->redirectToRoute("app_home");
+            
+        }
 
-    return $this->redirectToRoute('admin');
-}
-
-else {
-    $this->addFlash('error', "Vous N'avez Pas Les Droits Requis");
-    return $this->redirectToRoute("app_home");
-}
-
-}
+    }
 }

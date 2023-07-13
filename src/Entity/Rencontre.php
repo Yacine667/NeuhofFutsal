@@ -19,9 +19,6 @@ class Rencontre
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_rencontre = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $score_rencontre = null;
-
     #[ORM\OneToMany(mappedBy: 'rencontre', targetEntity: Oppose::class, cascade: ['persist', 'remove'])]
     private Collection $opposes;
 
@@ -71,18 +68,6 @@ class Rencontre
     public function setDateRencontre(\DateTimeInterface $date_rencontre): self
     {
         $this->date_rencontre = $date_rencontre;
-
-        return $this;
-    }
-
-    public function getScoreRencontre(): ?string
-    {
-        return $this->score_rencontre;
-    }
-
-    public function setScoreRencontre(?string $score_rencontre): self
-    {
-        $this->score_rencontre = $score_rencontre;
 
         return $this;
     }

@@ -98,8 +98,8 @@ class ProfilController extends AbstractController
         } 
 
         else {
-            $this->addFlash('success', 'Ppas !');
-            return $this->redirectToRoute("app_home");
+            $this->addFlash('error', "Les Modifications N'ont Pas été Prises En Compte !");
+            return $this->render('profil/edit_profil.html.twig');
         }
     }
 }

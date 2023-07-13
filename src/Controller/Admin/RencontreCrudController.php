@@ -27,7 +27,6 @@ class RencontreCrudController extends AbstractCrudController
             ->onlyOnIndex();
         yield DateTimeField::new('date_rencontre')
         ->setFormat('dd-MM-yyyy');
-        yield Field::new('score_rencontre');
         yield AssociationField::new('stade');
         yield CollectionField::new('opposes')
             ->setEntryIsComplex()

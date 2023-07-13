@@ -31,15 +31,26 @@
         <h3>Pseudo : {{ user.pseudo }}</h3>
         <h3>E-mail : {{ user.email }}</h3>
         <a href="{{ path('edit_profil',{'id':user.id})}}"><button class="modifProfil">Modifier le compte</button></a> 
+        <a href="{{ path('app_forgot_password_request') }}"><button class="modifProfil">Modifier mon mot de passe</button></a> 
         <button class="modal-btn modal-trigger">Supprimer le compte</button>
     
     </div>
 
     <div class="containerPostProfil">
 
-         <h2>Tout Mes Commentaires : </h2>
+        <h2>Tout Mes Commentaires : </h2>
 
-        {% for post in user.post %}
+         {% if user.post is empty %}
+
+        <div class="emptyComments">
+
+            <p>Aucun Commentaires Publiés !</p>
+                
+        </div>
+
+         {% else %}
+
+         {% for post in user.post %}
 
             <div class="postProfil">
 
@@ -61,6 +72,8 @@
             </div>
 
         {% endfor %}
+
+        {% endif %}
 
     </div>
                 

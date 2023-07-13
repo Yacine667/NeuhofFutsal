@@ -158,6 +158,23 @@
 
 }
 
+.noUser {
+
+  text-shadow: var(--textShadow);
+  font-size: 1.2em;
+  margin-bottom: 5%;
+  font-family: 'Quantico', sans-serif;
+  margin-top: 1%;
+  color: var(--text1);
+}
+
+.noUser a {
+
+  color: var(--linksHover);
+  text-decoration: none;
+
+}
+
 
 .footComment {
 

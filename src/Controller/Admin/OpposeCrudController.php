@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Oppose;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -26,6 +27,7 @@ class OpposeCrudController extends AbstractCrudController
         yield AssociationField::new('equipe_1');
         yield AssociationField::new('equipe_2');
         yield AssociationField::new('rencontre');
+        yield Field::new('score_match');
 
     }
 
