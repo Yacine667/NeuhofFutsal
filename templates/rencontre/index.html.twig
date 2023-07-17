@@ -31,10 +31,10 @@
 
                     {% if now > rencontreDom.rencontre.daterencontre %}
 
-                        <tr>
-                            <td> <img src="{{ rencontreDom.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe1 }} </td>  
+                        <tr class="matchLine">
+                            <td class="teamLine"> <img src="{{ rencontreDom.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe1 }} </td>  
                             <td> VS </td>                          
-                            <td> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td>  
+                            <td class="teamLine"> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td>  
                             <td>{{ rencontreDom.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
                             <td><a href="{{ path('details_stade', {'id': rencontreDom.rencontre.stade.id}) }}">{{ rencontreDom.rencontre.stade}}</a></td>
                             <td>{{ rencontreDom.scorematch}}</td>
@@ -62,10 +62,10 @@
 
                     {% if now > rencontreExt.rencontre.daterencontre %}
 
-                        <tr>
-                            <td> <img src="{{ rencontreExt.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe1 }} </td>  
+                        <tr class="matchLine">
+                            <td class="teamLine"> <img src="{{ rencontreExt.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe1 }} </td>  
                             <td> VS </td>                          
-                            <td> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td>  
+                            <td class="teamLine"> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td>  
                             <td>{{ rencontreExt.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
                             <td><a href="{{ path('details_stade', {'id': rencontreExt.rencontre.stade.id}) }}">{{ rencontreExt.rencontre.stade}}</a></td>
                             <td>{{ rencontreExt.scorematch}}</td>
@@ -92,10 +92,10 @@
 
                             {% if now <= rencontreDom.rencontre.daterencontre %}
 
-                                <tr>
-                                    <td> <img src="{{ rencontreDom.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe1 }} </td> 
+                                <tr class="matchLine">
+                                    <td class="teamLine"> <img src="{{ rencontreDom.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe1 }} </td> 
                                     <td> VS </td>                          
-                                    <td> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td> 
+                                    <td class="teamLine"> <img src="{{ rencontreDom.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreDom.equipe2 }} </td> 
                                     <td>{{ rencontreDom.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
                                     <td><a href="{{ path('details_stade', {'id': rencontreDom.rencontre.stade.id}) }}">{{ rencontreDom.rencontre.stade}}</a></td>
                                 </tr>
@@ -122,10 +122,10 @@
 
                             {% if now <= rencontreExt.rencontre.daterencontre %}
 
-                                <tr>
-                                    <td> <img src="{{ rencontreExt.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe1 }} </td> 
+                                <tr class="matchLine">
+                                    <td class="teamLine"> <img src="{{ rencontreExt.equipe1.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe1 }} </td> 
                                     <td> VS </td>                          
-                                    <td> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td> 
+                                    <td class="teamLine"> <img src="{{ rencontreExt.equipe2.logoequipe }}" alt="Logo Equipe"> {{ rencontreExt.equipe2 }} </td> 
                                     <td>{{ rencontreExt.rencontre.daterencontre |date("d-m-Y H:i")}} h</td>
                                     <td><a href="{{ path('details_stade', {'id': rencontreExt.rencontre.stade.id}) }}">{{ rencontreExt.rencontre.stade}}</a></td>
                                 </tr>

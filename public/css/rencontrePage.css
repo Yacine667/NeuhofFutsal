@@ -11,9 +11,7 @@
     background-size: cover;
     backdrop-filter: blur( 8.5px );
     -webkit-backdrop-filter: blur( 8.5px );
-    border-radius: 10px;
     font-family: 'Quantico', sans-serif;
-    border-radius: 10px;
     min-height: 100vh;
   
   }
@@ -54,14 +52,26 @@
     width: 20%;
     padding: 1%;
   }
+
+.matchLine {
+
+    text-align: center;
+    background-color: var(--lineMatch);
+    box-shadow: var(--boxShadow);
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border-radius: 10%;
+  }
   
-    .tableRencontre  td {
+.teamLine {
+
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
   
-      padding: 2%;
-    }
-  
-  
-    .tableRencontre  td img{
+.tableRencontre  td img{
    
     width: 70%;
       

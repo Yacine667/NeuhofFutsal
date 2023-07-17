@@ -5,6 +5,59 @@
     box-sizing: border-box;
 }
 
+/* ---------------------VARIABLES DARK/LIGHT--------------------- */
+
+
+[data-theme="light"] {
+
+  --bg-color: #ffffff;
+  --links: #454545;
+  --linksHover: #00ddff;
+  --div: #ffffff8b;
+  --text1 : #454545;
+  --gifHomeIntro: url("/img/front/whiteBubbles.gif") ;
+  --gifDiv: url("/img/front/bluePoint.gif") ;
+  --gifText : url("/img/front/blueWave.gif") ;
+  --gifTextPresentation : url("/img/front/progressCircle.gif");
+  --textShadow : rgb(0, 195, 255) 1px 0 10px;
+  --gradientName : linear-gradient(90deg, #ffffff00, #00ddff, #ffffff00);
+  --lastName :  #00ddff;
+  --boxShadow : 0 8px 32px 0 rgba(31, 135, 133, 0.37);
+  --subMenuBg : #00ddff71;
+  --lineMatch : #00ddff2e;
+  --iconFooter : #0000004d;
+  --shadowButton :0 0 5px #03e4f4cb,
+                  0 0 25px #03f4d8b5,
+                  0 0 50px #03f4eca4,
+                  0 0 100px #03ccf4d9;
+  
+}
+
+:root {
+
+  --bg-color: rgb(0, 0, 0);
+  --links: #FFFFFF;
+  --linksHover: #ff0000;
+  --div: rgba(0, 0, 0, 0.322);
+  --text1 : #FFFFFF;
+  --gifHomeIntro: url("/img/front/line.gif") ;
+  --gifDiv: url("/img/front/redsmoke.gif") ;
+  --gifText: url("/img/front/stade.gif") ;
+  --gifTextPresentation : url("/img/front/circle.gif");
+  --textShadow : rgb(255, 0, 0) 1px 0 10px;
+  --gradientName : linear-gradient(90deg, #ffffff00, #ff0000, #ffffff00);
+  --lastName : #ff0000;
+  --boxShadow : 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  --subMenuBg : #ff000082;
+  --lineMatch : #ff000042;
+  --iconFooter : #ffffff37;
+  --shadowButton :0 0 5px #f40303cb,
+                  0 0 25px #f40303b5,
+                  0 0 50px #f40303a4,
+                  0 0 100px #f40303d9;
+  
+}
+
 
 
 /* ---------------------BOUTON DARK/LIGHT--------------------- */
@@ -84,57 +137,6 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-/* ---------------------VARIABLES DARK/LIGHT--------------------- */
-
-
-[data-theme="light"] {
-
-  --bg-color: #ffffff;
-  --links: #454545;
-  --linksHover: #00ddff;
-  --div: #ffffff8b;
-  --text1 : #454545;
-  --gifHomeIntro: url("/img/front/whiteBubbles.gif") ;
-  --gifDiv: url("/img/front/bluePoint.gif") ;
-  --gifText : url("/img/front/blueWave.gif") ;
-  --gifTextPresentation : url("/img/front/progressCircle.gif");
-  --textShadow : rgb(0, 195, 255) 1px 0 10px;
-  --gradientName : linear-gradient(90deg, #ffffff00, #00ddff, #ffffff00);
-  --lastName :  #00ddff;
-  --boxShadow : 0 8px 32px 0 rgba(31, 135, 133, 0.37);
-  --subMenuBg : #00ddff71;
-  --iconFooter : #0000004d;
-  --shadowButton :0 0 5px #03e4f4cb,
-                  0 0 25px #03f4d8b5,
-                  0 0 50px #03f4eca4,
-                  0 0 100px #03ccf4d9;
-  
-}
-
-:root {
-
-  --bg-color: rgb(0, 0, 0);
-  --links: #FFFFFF;
-  --linksHover: #ff0000;
-  --div: rgba(0, 0, 0, 0.322);
-  --text1 : #FFFFFF;
-  --gifHomeIntro: url("/img/front/line.gif") ;
-  --gifDiv: url("/img/front/redsmoke.gif") ;
-  --gifText: url("/img/front/stade.gif") ;
-  --gifTextPresentation : url("/img/front/circle.gif");
-  --textShadow : rgb(255, 0, 0) 1px 0 10px;
-  --gradientName : linear-gradient(90deg, #ffffff00, #ff0000, #ffffff00);
-  --lastName : #ff0000;
-  --boxShadow : 0 8px 32px 0 rgba(135, 31, 31, 0.37);
-  --subMenuBg : #ff000082;
-  --iconFooter : #ffffff37;
-  --shadowButton :0 0 5px #f40303cb,
-                  0 0 25px #f40303b5,
-                  0 0 50px #f40303a4,
-                  0 0 100px #f40303d9;
-  
 }
 
 
