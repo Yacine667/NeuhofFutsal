@@ -90,6 +90,12 @@
 
 }
 
+#card #card-inner:hover {
+
+cursor: pointer;
+
+}
+
 
 #card #card-inner #card-top {
 
